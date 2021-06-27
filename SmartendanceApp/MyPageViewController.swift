@@ -12,9 +12,14 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var userIdText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("yutayuta")
+        print(userIdText)
+        idLabel.text = userIdText
         // Do any additional setup after loading the view.
     }
     
@@ -32,6 +37,13 @@ class MyPageViewController: UIViewController {
         
         //教官画面推移
         //performSegue(withIdentifier: "nextRoomSelectWithTeacher", sender: nil)
+    }
+    
+    //画面遷移で値を渡す
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        let nextVC = segue.destination as! RoomSelectViewController
+        nextVC.userIdText = userIdText
     }
     
     /*
