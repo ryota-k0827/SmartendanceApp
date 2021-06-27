@@ -49,5 +49,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    //画面遷移で値を渡す
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        let nextVC = segue.destination as! MyPageViewController
+//        nextVC.idLabel = String(userId.text)
+//    }
+    
 }
 
