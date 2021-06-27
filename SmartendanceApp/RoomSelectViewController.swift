@@ -10,11 +10,16 @@ import UIKit
 class RoomSelectViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var roomNumber: UITextField!
+    @IBOutlet weak var idLabel: UILabel!
+    
+    var userIdText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         roomNumber.delegate = self
+        
+        idLabel.text = userIdText
     }
     
     //出席ボタン
@@ -39,6 +44,15 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    //画面遷移で値を渡す
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        let nextVC = segue.destination as! AttendanceCompleteViewController
+        nextVC.userIdText = userIdText
+        let roomNunberText: String? = roomNumber.text
+        nextVC.roomNumberText = roomNunberText!
     }
     
     /*
