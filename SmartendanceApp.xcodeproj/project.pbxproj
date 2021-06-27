@@ -13,6 +13,11 @@
 		A3B894BA2688C4BE00715BB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B894B82688C4BE00715BB4 /* Main.storyboard */; };
 		A3B894BC2688C4C000715BB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B894BB2688C4C000715BB4 /* Assets.xcassets */; };
 		A3B894BF2688C4C000715BB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B894BD2688C4C000715BB4 /* LaunchScreen.storyboard */; };
+		A3B894C72688D4BE00715BB4 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B894C62688D4BE00715BB4 /* MyPageViewController.swift */; };
+		A3B894CB2688DA3800715BB4 /* AttendanceCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B894CA2688DA3800715BB4 /* AttendanceCompleteViewController.swift */; };
+		A3C81A052688DEC600F8B3F5 /* RoomSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C81A042688DEC600F8B3F5 /* RoomSelectViewController.swift */; };
+		A3CCA81E2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */; };
+		A3CCA8202688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		A3B894BB2688C4C000715BB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3B894BE2688C4C000715BB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3B894C02688C4C000715BB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3B894C62688D4BE00715BB4 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		A3B894CA2688DA3800715BB4 /* AttendanceCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCompleteViewController.swift; sourceTree = "<group>"; };
+		A3C81A042688DEC600F8B3F5 /* RoomSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectViewController.swift; sourceTree = "<group>"; };
+		A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectWithTeacherViewController.swift; sourceTree = "<group>"; };
+		A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCheckWithTeacherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,11 @@
 				A3B894B22688C4BE00715BB4 /* AppDelegate.swift */,
 				A3B894B42688C4BE00715BB4 /* SceneDelegate.swift */,
 				A3B894B62688C4BE00715BB4 /* ViewController.swift */,
+				A3B894C62688D4BE00715BB4 /* MyPageViewController.swift */,
+				A3C81A042688DEC600F8B3F5 /* RoomSelectViewController.swift */,
+				A3B894CA2688DA3800715BB4 /* AttendanceCompleteViewController.swift */,
+				A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */,
+				A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */,
 				A3B894B82688C4BE00715BB4 /* Main.storyboard */,
 				A3B894BB2688C4C000715BB4 /* Assets.xcassets */,
 				A3B894BD2688C4C000715BB4 /* LaunchScreen.storyboard */,
@@ -137,9 +152,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CCA81E2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift in Sources */,
 				A3B894B72688C4BE00715BB4 /* ViewController.swift in Sources */,
+				A3B894CB2688DA3800715BB4 /* AttendanceCompleteViewController.swift in Sources */,
 				A3B894B32688C4BE00715BB4 /* AppDelegate.swift in Sources */,
+				A3C81A052688DEC600F8B3F5 /* RoomSelectViewController.swift in Sources */,
+				A3CCA8202688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift in Sources */,
 				A3B894B52688C4BE00715BB4 /* SceneDelegate.swift in Sources */,
+				A3B894C72688D4BE00715BB4 /* MyPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
