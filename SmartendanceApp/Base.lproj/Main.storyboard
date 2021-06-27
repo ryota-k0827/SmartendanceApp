@@ -138,6 +138,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="idLabel" destination="oC7-RU-ScI" id="JOx-Ik-78Y"/>
+                        <outlet property="nameLabel" destination="cNj-EA-I7E" id="H6h-vy-T95"/>
                         <segue destination="VeV-NF-cmC" kind="presentation" identifier="nextRoomSelect" id="4OW-4w-Zlz"/>
                         <segue destination="5zx-0Q-y9i" kind="presentation" identifier="nextRoomSelectWithTeacher" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="blb-8A-tgv"/>
                     </connections>

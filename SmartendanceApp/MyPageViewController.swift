@@ -9,6 +9,9 @@ import UIKit
 
 class MyPageViewController: UIViewController {
 
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
