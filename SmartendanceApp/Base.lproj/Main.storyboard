@@ -104,6 +104,10 @@
                                 <state key="normal" title="成績照会">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ResultAction:" destination="Qai-UI-Bot" eventType="touchUpInside" id="fuI-nt-Mvv"/>
+                                    <action selector="nextResultPage:" destination="cWl-Ib-qLr" eventType="touchUpInside" id="OBJ-b9-je2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dr-nA-ctW">
                                 <rect key="frame" x="16" y="156" width="71" height="17"/>
@@ -142,9 +146,11 @@
                         <outlet property="nameLabel" destination="cNj-EA-I7E" id="H6h-vy-T95"/>
                         <segue destination="VeV-NF-cmC" kind="presentation" identifier="nextRoomSelect" id="4OW-4w-Zlz"/>
                         <segue destination="5zx-0Q-y9i" kind="presentation" identifier="nextRoomSelectWithTeacher" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="blb-8A-tgv"/>
+                        <segue destination="D8P-Ur-XOv" kind="presentation" identifier="nextResultPage" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="34p-Wk-0oH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMZ-BT-xgu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Qai-UI-Bot" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="968.79999999999995" y="108.39580209895054"/>
         </scene>
@@ -440,6 +446,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="idLabel" destination="Pb3-Wj-NmF" id="cOs-AC-5z8"/>
+                        <outlet property="nameLabel" destination="Hdx-ri-BtD" id="RU9-cb-e8g"/>
                         <outlet property="roomNumberWithTeacher" destination="nfq-jn-Eeu" id="yff-2s-e78"/>
                         <segue destination="e6a-OB-wdN" kind="presentation" identifier="nextAttendanceCheckWithTeacher" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zrv-9a-maL"/>
                     </connections>
@@ -583,6 +591,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1J-xI-dKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2781.5999999999999" y="903.59820089955031"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="OhX-7X-RfQ">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="D8P-Ur-XOv" customClass="ResultViewController" customModule="SmartendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4bb-TY-Yd9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="q4D-sL-RjG">
+                                <rect key="frame" x="16" y="20" width="343" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2b-xX-FfX">
+                                <rect key="frame" x="77" y="517" width="221" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="マイページへ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGq-AT-Z3Q">
+                                <rect key="frame" x="16" y="156" width="71" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ohs80538" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVQ-Uk-bDr">
+                                <rect key="frame" x="83" y="156" width="100" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yP3-G2-iGZ">
+                                <rect key="frame" x="260" y="156" width="43" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="金子凌大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x62-0A-spL">
+                                <rect key="frame" x="301" y="156" width="58" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8ee-to-dpf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="idLabel" destination="cVQ-Uk-bDr" id="3i4-I1-LE1"/>
+                        <outlet property="nameLabel" destination="x62-0A-spL" id="BUU-CU-da2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p8v-ts-oba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873" y="-718"/>
         </scene>
     </scenes>
     <resources>

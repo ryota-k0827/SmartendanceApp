@@ -10,10 +10,20 @@ import UIKit
 class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var roomNumberWithTeacher: UITextField!
+    
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    var userIdText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         roomNumberWithTeacher.delegate = self
+        
+        print("yutayuta")
+        print(userIdText)
+        idLabel.text = userIdText
     }
     
     @IBAction func attendanceCheckWithTeacher(_ sender: Any) {

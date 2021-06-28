@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A32B1052268969C700114F13 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B1051268969C700114F13 /* ResultViewController.swift */; };
 		A3B894B32688C4BE00715BB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B894B22688C4BE00715BB4 /* AppDelegate.swift */; };
 		A3B894B52688C4BE00715BB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B894B42688C4BE00715BB4 /* SceneDelegate.swift */; };
 		A3B894B72688C4BE00715BB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B894B62688C4BE00715BB4 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A32B1051268969C700114F13 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		A3B894AF2688C4BE00715BB4 /* SmartendanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartendanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B894B22688C4BE00715BB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3B894B42688C4BE00715BB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				A3B894C62688D4BE00715BB4 /* MyPageViewController.swift */,
 				A3C81A042688DEC600F8B3F5 /* RoomSelectViewController.swift */,
 				A3B894CA2688DA3800715BB4 /* AttendanceCompleteViewController.swift */,
+				A32B1051268969C700114F13 /* ResultViewController.swift */,
 				A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */,
 				A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */,
 				A3B894B82688C4BE00715BB4 /* Main.storyboard */,
@@ -160,6 +163,7 @@
 				A3CCA8202688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift in Sources */,
 				A3B894B52688C4BE00715BB4 /* SceneDelegate.swift in Sources */,
 				A3B894C72688D4BE00715BB4 /* MyPageViewController.swift in Sources */,
+				A32B1052268969C700114F13 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

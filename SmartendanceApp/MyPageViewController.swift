@@ -32,18 +32,42 @@ class MyPageViewController: UIViewController {
     
     //出席確認ボタン
     @IBAction func attendanceCheck(_ sender: Any) {
-        //画面遷移
-        performSegue(withIdentifier: "nextRoomSelect", sender: nil)
+        //教官画面遷移
+        if userIdText == "teacher" {
+            performSegue(withIdentifier: "nextRoomSelectWithTeacher", sender: nil)
+        }
+        //生徒画面推移
+        else {
+            performSegue(withIdentifier: "nextRoomSelect", sender: nil)
+        }
         
         //教官画面推移
         //performSegue(withIdentifier: "nextRoomSelectWithTeacher", sender: nil)
     }
     
+    //成績照会ボタン
+    @IBAction func nextResultPage(_ sender: Any) {
+        performSegue(withIdentifier: "nextResultPage", sender: nil)
+    }
+    
     //画面遷移で値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        let nextVC = segue.destination as! RoomSelectViewController
-        nextVC.userIdText = userIdText
+        //出席確認ボタン押した時（教官）
+        if segue.identifier == "nextRoomSelectWithTeacher" {
+            let nextVC = segue.destination as! RoomSelectWithTeacherViewController
+            nextVC.userIdText = userIdText
+        }
+        //（生徒）
+        else if segue.identifier == "nextRoomSelect" {
+            let nextVC = segue.destination as! RoomSelectViewController
+            nextVC.userIdText = userIdText
+        }
+        //成績照会ボタン押した時
+        else if segue.identifier == "nextResultPage" {
+            let nextVC = segue.destination as! ResultViewController
+            nextVC.userIdText = userIdText
+        }
     }
     
     /*
