@@ -9,8 +9,25 @@ import UIKit
 
 class AttendanceCheckWithTeacherViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    
+    @IBOutlet weak var roomNumLabel: UILabel!
+    @IBOutlet weak var classLabel: UILabel!
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    var userIdText = ""
+    var nameText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        idLabel.text = userIdText
+        nameLabel.text = nameText
 
         // Do any additional setup after loading the view.
     }

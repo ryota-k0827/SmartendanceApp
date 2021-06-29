@@ -55,6 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let nextVC = segue.destination as! MyPageViewController
         let userIdText: String? = userId.text
         nextVC.userIdText = userIdText!
+        nextVC.nameText = "テスト"
     }
     
 }

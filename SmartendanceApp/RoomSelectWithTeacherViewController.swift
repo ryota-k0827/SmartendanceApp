@@ -15,6 +15,7 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var nameLabel: UILabel!
     
     var userIdText = ""
+    var nameText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
         print("yutayuta")
         print(userIdText)
         idLabel.text = userIdText
+        nameLabel.text = nameText
     }
     
     @IBAction func attendanceCheckWithTeacher(_ sender: Any) {
@@ -47,6 +49,15 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    //画面遷移で値を渡す
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        let nextVC = segue.destination as! AttendanceCheckWithTeacherViewController
+        nextVC.userIdText = userIdText
+        nextVC.nameText = nameText
+       
     }
     /*
     // MARK: - Navigation

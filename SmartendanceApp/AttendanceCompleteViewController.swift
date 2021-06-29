@@ -10,15 +10,18 @@ import UIKit
 class AttendanceCompleteViewController: UIViewController {
 
     @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
     
     var userIdText = ""
+    var nameText = ""
     var roomNumberText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         idLabel.text = userIdText
+        nameLabel.text = nameText
         roomLabel.text = roomNumberText
 
         // Do any additional setup after loading the view.
