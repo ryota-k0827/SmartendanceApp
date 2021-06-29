@@ -13,6 +13,8 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     var userIdText = ""
+    var nameText = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,7 @@ class MyPageViewController: UIViewController {
         print("yutayuta")
         print(userIdText)
         idLabel.text = userIdText
+        nameLabel.text = nameText
         // Do any additional setup after loading the view.
     }
     
@@ -40,9 +43,6 @@ class MyPageViewController: UIViewController {
         else {
             performSegue(withIdentifier: "nextRoomSelect", sender: nil)
         }
-        
-        //教官画面推移
-        //performSegue(withIdentifier: "nextRoomSelectWithTeacher", sender: nil)
     }
     
     //成績照会ボタン
@@ -57,16 +57,19 @@ class MyPageViewController: UIViewController {
         if segue.identifier == "nextRoomSelectWithTeacher" {
             let nextVC = segue.destination as! RoomSelectWithTeacherViewController
             nextVC.userIdText = userIdText
+            nextVC.nameText = nameText
         }
         //（生徒）
         else if segue.identifier == "nextRoomSelect" {
             let nextVC = segue.destination as! RoomSelectViewController
             nextVC.userIdText = userIdText
+            nextVC.nameText = nameText
         }
         //成績照会ボタン押した時
         else if segue.identifier == "nextResultPage" {
             let nextVC = segue.destination as! ResultViewController
             nextVC.userIdText = userIdText
+            nextVC.nameText = nameText
         }
     }
     

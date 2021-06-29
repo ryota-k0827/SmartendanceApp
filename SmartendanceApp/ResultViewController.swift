@@ -13,6 +13,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     var userIdText = ""
+    var nameText = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class ResultViewController: UIViewController {
         print("yutayuta")
         print(userIdText)
         idLabel.text = userIdText
+        nameLabel.text = nameText
 
         // Do any additional setup after loading the view.
     }

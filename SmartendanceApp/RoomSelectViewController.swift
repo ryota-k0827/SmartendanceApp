@@ -11,8 +11,11 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var roomNumber: UITextField!
     @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     
     var userIdText = ""
+    var nameText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,7 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
         roomNumber.delegate = self
         
         idLabel.text = userIdText
+        nameLabel.text = nameText
     }
     
     //出席ボタン
@@ -51,6 +55,7 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
 
         let nextVC = segue.destination as! AttendanceCompleteViewController
         nextVC.userIdText = userIdText
+        nextVC.nameText = nameText
         let roomNunberText: String? = roomNumber.text
         nextVC.roomNumberText = roomNunberText!
     }
