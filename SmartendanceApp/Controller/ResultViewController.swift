@@ -1,5 +1,5 @@
 //
-//  AttendanceCompleteViewController.swift
+//  ResultViewController.swift
 //  SmartendanceApp
 //
 //  Created by Ryota Kaneko on 2021/06/28.
@@ -7,27 +7,27 @@
 
 import UIKit
 
-class AttendanceCompleteViewController: UIViewController {
-
+class ResultViewController: UIViewController {
+    
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var roomLabel: UILabel!
     
-    var userIdText = ""
-    var nameText = ""
-    var roomNumberText = ""
-    
+    var userDataList: Dictionary<String, String> = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idLabel.text = userIdText
-        nameLabel.text = nameText
-        roomLabel.text = roomNumberText
+        idLabel.text = userDataList["userId"]
+        nameLabel.text = userDataList["name"]
 
         // Do any additional setup after loading the view.
     }
     
-
+//    @IBAction func ResultAction(_ sender: Any) {
+//        //nextResultPage
+//        performSegue(withIdentifier: "nextResultPage", sender: nil)
+//    }
+    
     /*
     // MARK: - Navigation
 

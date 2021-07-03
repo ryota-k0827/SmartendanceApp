@@ -12,18 +12,15 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var userIdText = ""
-    var nameText = ""
-    
+    var userDataList: Dictionary<String, String> = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("yutayuta")
-        print(userIdText)
-        idLabel.text = userIdText
-        nameLabel.text = nameText
-        // Do any additional setup after loading the view.
+        print("MyPageViewControllerに渡った値↓")
+        print(userDataList)
+        idLabel.text = userDataList["userId"]
+        nameLabel.text = userDataList["name"]
     }
     
 
@@ -36,7 +33,7 @@ class MyPageViewController: UIViewController {
     //出席確認ボタン
     @IBAction func attendanceCheck(_ sender: Any) {
         //教官画面遷移
-        if userIdText == "teacher" {
+        if userDataList["userType"] == "teacher" {
             performSegue(withIdentifier: "nextRoomSelectWithTeacher", sender: nil)
         }
         //生徒画面推移
@@ -56,20 +53,17 @@ class MyPageViewController: UIViewController {
         //出席確認ボタン押した時（教官）
         if segue.identifier == "nextRoomSelectWithTeacher" {
             let nextVC = segue.destination as! RoomSelectWithTeacherViewController
-            nextVC.userIdText = userIdText
-            nextVC.nameText = nameText
+            nextVC.userDataList = userDataList
         }
         //（生徒）
         else if segue.identifier == "nextRoomSelect" {
             let nextVC = segue.destination as! RoomSelectViewController
-            nextVC.userIdText = userIdText
-            nextVC.nameText = nameText
+            nextVC.userDataList = userDataList
         }
         //成績照会ボタン押した時
         else if segue.identifier == "nextResultPage" {
             let nextVC = segue.destination as! ResultViewController
-            nextVC.userIdText = userIdText
-            nextVC.nameText = nameText
+            nextVC.userDataList = userDataList
         }
     }
     

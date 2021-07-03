@@ -12,6 +12,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userId: UITextField!
     @IBOutlet weak var pasword: UITextField!
     
+    var loginModel = Login()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +33,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             print("パスワードが空白")
         }
         else {
-            print("ユーザID：\(String(describing: userId.text))")
-            print("パスワード：\(String(describing: pasword.text))")
+            print("ユーザID：\(String(userId.text!))")
+            print("パスワード：\(String(pasword.text!))")
+            
+            loginModel.getUserData(userId: String(userId.text!), password: String(pasword.text!))
             //画面遷移
             performSegue(withIdentifier: "nextMyPage", sender: nil)
         }
@@ -51,11 +55,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //画面遷移で値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        //loginModel.getUserData(userId: String(userId.text!), password: String(pasword.text!))
         let nextVC = segue.destination as! MyPageViewController
-        let userIdText: String? = userId.text
-        nextVC.userIdText = userIdText!
-        nextVC.nameText = "テスト"
+        nextVC.userDataList = loginModel.userDataList
     }
     
 }

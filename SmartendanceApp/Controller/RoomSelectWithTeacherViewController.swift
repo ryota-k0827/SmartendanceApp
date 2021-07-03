@@ -14,18 +14,15 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var userIdText = ""
-    var nameText = ""
+    var userDataList: Dictionary<String, String> = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         roomNumberWithTeacher.delegate = self
         
-        print("yutayuta")
-        print(userIdText)
-        idLabel.text = userIdText
-        nameLabel.text = nameText
+        idLabel.text = userDataList["userId"]
+        nameLabel.text = userDataList["name"]
     }
     
     @IBAction func attendanceCheckWithTeacher(_ sender: Any) {
@@ -55,8 +52,7 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         let nextVC = segue.destination as! AttendanceCheckWithTeacherViewController
-        nextVC.userIdText = userIdText
-        nextVC.nameText = nameText
+        nextVC.userDataList = userDataList
        
     }
     /*

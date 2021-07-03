@@ -1,5 +1,5 @@
 //
-//  AttendanceCheckWithTeacherViewController.swift
+//  AttendanceCompleteViewController.swift
 //  SmartendanceApp
 //
 //  Created by Ryota Kaneko on 2021/06/28.
@@ -7,27 +7,21 @@
 
 import UIKit
 
-class AttendanceCheckWithTeacherViewController: UIViewController {
+class AttendanceCompleteViewController: UIViewController {
 
-    
-    
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var roomLabel: UILabel!
     
-    
-    @IBOutlet weak var roomNumLabel: UILabel!
-    @IBOutlet weak var classLabel: UILabel!
-    @IBOutlet weak var subjectLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    
-    var userIdText = ""
-    var nameText = ""
+    var userDataList: Dictionary<String, String> = [:]
+    var roomNumberText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idLabel.text = userIdText
-        nameLabel.text = nameText
+        idLabel.text = userDataList["userId"]
+        nameLabel.text = userDataList["name"]
+        roomLabel.text = roomNumberText
 
         // Do any additional setup after loading the view.
     }

@@ -1,5 +1,5 @@
 //
-//  ResultViewController.swift
+//  AttendanceCheckWithTeacherViewController.swift
 //  SmartendanceApp
 //
 //  Created by Ryota Kaneko on 2021/06/28.
@@ -7,30 +7,31 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class AttendanceCheckWithTeacherViewController: UIViewController {
+
+    
     
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var userIdText = ""
-    var nameText = ""
-
+    
+    @IBOutlet weak var roomNumLabel: UILabel!
+    @IBOutlet weak var classLabel: UILabel!
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    var userDataList: Dictionary<String, String> = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("yutayuta")
-        print(userIdText)
-        idLabel.text = userIdText
-        nameLabel.text = nameText
+        idLabel.text = userDataList["userId"]
+        nameLabel.text = userDataList["name"]
 
         // Do any additional setup after loading the view.
     }
     
-//    @IBAction func ResultAction(_ sender: Any) {
-//        //nextResultPage
-//        performSegue(withIdentifier: "nextResultPage", sender: nil)
-//    }
-    
+
     /*
     // MARK: - Navigation
 
