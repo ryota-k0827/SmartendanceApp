@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C7F7D985B287664383A7E26 /* Pods_SmartendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE13D463B051FED04A4E5288 /* Pods_SmartendanceApp.framework */; };
+		A30ACE60268EE64D00F1365B /* AttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE5F268EE64D00F1365B /* AttendanceModel.swift */; };
+		A30ACE62268EE67000F1365B /* AttendanceCheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE61268EE67000F1365B /* AttendanceCheckModel.swift */; };
 		A32B1052268969C700114F13 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B1051268969C700114F13 /* ResultViewController.swift */; };
 		A3B894B32688C4BE00715BB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B894B22688C4BE00715BB4 /* AppDelegate.swift */; };
 		A3B894B52688C4BE00715BB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B894B42688C4BE00715BB4 /* SceneDelegate.swift */; };
@@ -19,9 +22,13 @@
 		A3C81A052688DEC600F8B3F5 /* RoomSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C81A042688DEC600F8B3F5 /* RoomSelectViewController.swift */; };
 		A3CCA81E2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */; };
 		A3CCA8202688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */; };
+		A3CD19DE2690141700CDECB8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD19DD2690141700CDECB8 /* Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7046409DBEA071946198C5C0 /* Pods-SmartendanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartendanceApp.release.xcconfig"; path = "Target Support Files/Pods-SmartendanceApp/Pods-SmartendanceApp.release.xcconfig"; sourceTree = "<group>"; };
+		A30ACE5F268EE64D00F1365B /* AttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModel.swift; sourceTree = "<group>"; };
+		A30ACE61268EE67000F1365B /* AttendanceCheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCheckModel.swift; sourceTree = "<group>"; };
 		A32B1051268969C700114F13 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		A3B894AF2688C4BE00715BB4 /* SmartendanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartendanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B894B22688C4BE00715BB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +43,9 @@
 		A3C81A042688DEC600F8B3F5 /* RoomSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectViewController.swift; sourceTree = "<group>"; };
 		A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectWithTeacherViewController.swift; sourceTree = "<group>"; };
 		A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCheckWithTeacherViewController.swift; sourceTree = "<group>"; };
+		A3CD19DD2690141700CDECB8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		AE13D463B051FED04A4E5288 /* Pods_SmartendanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartendanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F082BF0CCCED980701F7AED8 /* Pods-SmartendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartendanceApp.debug.xcconfig"; path = "Target Support Files/Pods-SmartendanceApp/Pods-SmartendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,17 +53,63 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C7F7D985B287664383A7E26 /* Pods_SmartendanceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		050B80874009741F8CD1CE55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE13D463B051FED04A4E5288 /* Pods_SmartendanceApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3882488268D60800026108F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A30ACE5F268EE64D00F1365B /* AttendanceModel.swift */,
+				A30ACE61268EE67000F1365B /* AttendanceCheckModel.swift */,
+				A3CD19DD2690141700CDECB8 /* Login.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A3882489268D608D0026108F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A3B894B82688C4BE00715BB4 /* Main.storyboard */,
+				A3B894BB2688C4C000715BB4 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A388248A268D60940026108F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A3B894B22688C4BE00715BB4 /* AppDelegate.swift */,
+				A3B894B42688C4BE00715BB4 /* SceneDelegate.swift */,
+				A3B894B62688C4BE00715BB4 /* ViewController.swift */,
+				A3B894C62688D4BE00715BB4 /* MyPageViewController.swift */,
+				A3C81A042688DEC600F8B3F5 /* RoomSelectViewController.swift */,
+				A3B894CA2688DA3800715BB4 /* AttendanceCompleteViewController.swift */,
+				A32B1051268969C700114F13 /* ResultViewController.swift */,
+				A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */,
+				A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A3B894A62688C4BE00715BB4 = {
 			isa = PBXGroup;
 			children = (
 				A3B894B12688C4BE00715BB4 /* SmartendanceApp */,
 				A3B894B02688C4BE00715BB4 /* Products */,
+				FE43A979E5CC326E65D6A0D1 /* Pods */,
+				050B80874009741F8CD1CE55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,21 +124,22 @@
 		A3B894B12688C4BE00715BB4 /* SmartendanceApp */ = {
 			isa = PBXGroup;
 			children = (
-				A3B894B22688C4BE00715BB4 /* AppDelegate.swift */,
-				A3B894B42688C4BE00715BB4 /* SceneDelegate.swift */,
-				A3B894B62688C4BE00715BB4 /* ViewController.swift */,
-				A3B894C62688D4BE00715BB4 /* MyPageViewController.swift */,
-				A3C81A042688DEC600F8B3F5 /* RoomSelectViewController.swift */,
-				A3B894CA2688DA3800715BB4 /* AttendanceCompleteViewController.swift */,
-				A32B1051268969C700114F13 /* ResultViewController.swift */,
-				A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */,
-				A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */,
-				A3B894B82688C4BE00715BB4 /* Main.storyboard */,
-				A3B894BB2688C4C000715BB4 /* Assets.xcassets */,
+				A3882488268D60800026108F /* Model */,
+				A3882489268D608D0026108F /* View */,
+				A388248A268D60940026108F /* Controller */,
 				A3B894BD2688C4C000715BB4 /* LaunchScreen.storyboard */,
 				A3B894C02688C4C000715BB4 /* Info.plist */,
 			);
 			path = SmartendanceApp;
+			sourceTree = "<group>";
+		};
+		FE43A979E5CC326E65D6A0D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F082BF0CCCED980701F7AED8 /* Pods-SmartendanceApp.debug.xcconfig */,
+				7046409DBEA071946198C5C0 /* Pods-SmartendanceApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,9 +149,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3B894C32688C4C000715BB4 /* Build configuration list for PBXNativeTarget "SmartendanceApp" */;
 			buildPhases = (
+				F2B9ADCD7A998A3E61E614A2 /* [CP] Check Pods Manifest.lock */,
 				A3B894AB2688C4BE00715BB4 /* Sources */,
 				A3B894AC2688C4BE00715BB4 /* Frameworks */,
 				A3B894AD2688C4BE00715BB4 /* Resources */,
+				0519D6BE702DB8BD5060144C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,6 +209,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0519D6BE702DB8BD5060144C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartendanceApp/Pods-SmartendanceApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartendanceApp/Pods-SmartendanceApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartendanceApp/Pods-SmartendanceApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2B9ADCD7A998A3E61E614A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartendanceApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A3B894AB2688C4BE00715BB4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -158,8 +259,11 @@
 				A3CCA81E2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift in Sources */,
 				A3B894B72688C4BE00715BB4 /* ViewController.swift in Sources */,
 				A3B894CB2688DA3800715BB4 /* AttendanceCompleteViewController.swift in Sources */,
+				A3CD19DE2690141700CDECB8 /* Login.swift in Sources */,
 				A3B894B32688C4BE00715BB4 /* AppDelegate.swift in Sources */,
+				A30ACE60268EE64D00F1365B /* AttendanceModel.swift in Sources */,
 				A3C81A052688DEC600F8B3F5 /* RoomSelectViewController.swift in Sources */,
+				A30ACE62268EE67000F1365B /* AttendanceCheckModel.swift in Sources */,
 				A3CCA8202688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift in Sources */,
 				A3B894B52688C4BE00715BB4 /* SceneDelegate.swift in Sources */,
 				A3B894C72688D4BE00715BB4 /* MyPageViewController.swift in Sources */,
@@ -307,6 +411,7 @@
 		};
 		A3B894C42688C4C000715BB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F082BF0CCCED980701F7AED8 /* Pods-SmartendanceApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -326,6 +431,7 @@
 		};
 		A3B894C52688C4C000715BB4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7046409DBEA071946198C5C0 /* Pods-SmartendanceApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
