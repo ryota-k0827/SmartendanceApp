@@ -14,15 +14,15 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var userDataList: Dictionary<String, String> = [:]
+    var attendanceCheckModel = AttendanceCheck()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         roomNumberWithTeacher.delegate = self
         
-        idLabel.text = userDataList["userId"]
-        nameLabel.text = userDataList["name"]
+        idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
+        nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
     }
     
     @IBAction func attendanceCheckWithTeacher(_ sender: Any) {
@@ -36,6 +36,13 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
             performSegue(withIdentifier: "nextAttendanceCheckWithTeacher", sender: nil)
         }
     }
+    
+    //マイページボタン
+    @IBAction func myPageButton(_ sender: Any) {
+        //画面遷移
+        performSegue(withIdentifier: "backMyPage", sender: nil)
+    }
+    
     
     //タップでキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -51,8 +58,10 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
     //画面遷移で値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        let nextVC = segue.destination as! AttendanceCheckWithTeacherViewController
-        nextVC.userDataList = userDataList
+        if segue.identifier == "nextAttendanceCheckWithTeacher" {
+            let nextVC = segue.destination as! AttendanceCheckWithTeacherViewController
+            nextVC.userDataList = attendanceCheckModel.attendanceDataList
+        }
        
     }
     /*

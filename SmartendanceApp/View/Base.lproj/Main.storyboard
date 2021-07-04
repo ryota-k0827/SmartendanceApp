@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SmartendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="SmartendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,6 +199,9 @@
                                 <state key="normal" title="マイページへ">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="myPageButton:" destination="VeV-NF-cmC" eventType="touchUpInside" id="AMK-g6-iAn"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dW-eN-udW">
                                 <rect key="frame" x="16" y="156" width="71" height="17"/>
@@ -237,6 +240,7 @@
                         <outlet property="nameLabel" destination="mXz-aE-PrP" id="vX2-7t-9MX"/>
                         <outlet property="roomNumber" destination="R8W-d9-vgV" id="Cwy-iF-TJp"/>
                         <segue destination="23P-LB-HeJ" kind="presentation" identifier="nextAttendanceComplete" id="FSo-Gq-qjj"/>
+                        <segue destination="cWl-Ib-qLr" kind="presentation" identifier="backMyPage" id="5Xh-2u-79L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vo-eW-puq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -263,6 +267,9 @@
                                 <state key="normal" title="マイページへ">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="myPageButtom:" destination="23P-LB-HeJ" eventType="touchUpInside" id="6j5-07-Auy"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="出席完了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUl-OO-Pgh">
                                 <rect key="frame" x="16" y="254" width="343" height="36"/>
@@ -360,9 +367,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="attendTimeLabel" destination="92n-10-44l" id="IYg-P5-pj3"/>
+                        <outlet property="classSymbolLabel" destination="0wj-vK-BUM" id="urx-UA-ofk"/>
                         <outlet property="idLabel" destination="r3a-iA-uhd" id="DQK-tu-f6U"/>
                         <outlet property="nameLabel" destination="WfJ-PX-Tpp" id="cYe-E7-j6O"/>
                         <outlet property="roomLabel" destination="oDm-2A-NbI" id="UeB-bk-jHh"/>
+                        <outlet property="subjectLabel" destination="vm4-o2-4g1" id="wea-xg-D55"/>
+                        <segue destination="cWl-Ib-qLr" kind="presentation" identifier="backMyPage" id="COy-Mg-Cxh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pd7-yG-dRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -414,6 +425,9 @@
                                 <state key="normal" title="マイページへ">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="myPageButton:" destination="5zx-0Q-y9i" eventType="touchUpInside" id="AGw-lU-l6g"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFE-9l-ioa">
                                 <rect key="frame" x="16" y="156" width="71" height="17"/>
@@ -452,6 +466,7 @@
                         <outlet property="nameLabel" destination="Hdx-ri-BtD" id="RU9-cb-e8g"/>
                         <outlet property="roomNumberWithTeacher" destination="nfq-jn-Eeu" id="yff-2s-e78"/>
                         <segue destination="e6a-OB-wdN" kind="presentation" identifier="nextAttendanceCheckWithTeacher" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zrv-9a-maL"/>
+                        <segue destination="cWl-Ib-qLr" kind="presentation" identifier="backMyPage" id="kMy-ot-AGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4NU-1g-cVe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -478,6 +493,9 @@
                                 <state key="normal" title="マイページへ">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="myPageButton:" destination="e6a-OB-wdN" eventType="touchUpInside" id="xmG-6V-u11"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSc-oo-moe">
                                 <rect key="frame" x="16" y="156" width="71" height="17"/>
@@ -596,6 +614,7 @@
                         <outlet property="roomNumLabel" destination="pMd-ah-FZj" id="Ec0-D1-ucY"/>
                         <outlet property="subjectLabel" destination="pPI-48-no0" id="f22-2k-9PO"/>
                         <outlet property="timeLabel" destination="IPH-zc-EzF" id="kAU-0m-UGc"/>
+                        <segue destination="cWl-Ib-qLr" kind="presentation" identifier="backMyPage" id="oeS-RR-dhi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1J-xI-dKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -622,6 +641,9 @@
                                 <state key="normal" title="マイページへ">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="myPageButton:" destination="D8P-Ur-XOv" eventType="touchUpInside" id="u30-um-p9Y"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGq-AT-Z3Q">
                                 <rect key="frame" x="16" y="156" width="71" height="17"/>
@@ -665,6 +687,7 @@
                     <connections>
                         <outlet property="idLabel" destination="cVQ-Uk-bDr" id="3i4-I1-LE1"/>
                         <outlet property="nameLabel" destination="x62-0A-spL" id="BUU-CU-da2"/>
+                        <segue destination="cWl-Ib-qLr" kind="presentation" identifier="backMyPage" id="xbQ-Dl-Odg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8v-ts-oba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -672,6 +695,9 @@
             <point key="canvasLocation" x="1873" y="-718"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5Xh-2u-79L"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="1734" height="445"/>
         <systemColor name="systemBackgroundColor">

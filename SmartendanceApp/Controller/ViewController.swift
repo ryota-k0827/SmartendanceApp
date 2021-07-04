@@ -14,11 +14,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var loginModel = Login()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        userId.delegate = self
-        pasword.delegate = self
+    override func viewDidAppear(_ animated:Bool) {
+        if UserDefaults.standard.object(forKey: "userId") != nil {
+            print("ログイン済み")
+            //画面遷移
+            performSegue(withIdentifier: "nextMyPage", sender: nil)
+        }else {
+            print("初回起動です。")
+            super.viewDidLoad()
+            
+            userId.delegate = self
+            pasword.delegate = self
+        }
     }
 
     
@@ -27,18 +34,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let text = userId.text, text.isEmpty {
             //空白処理
             print("ユーザIDが空白")
+            //アラートを表示
+            let dialog = UIAlertController(title: "エラー", message: "ユーザIDが空白です。", preferredStyle: .alert)
+            dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
+            self.present(dialog, animated: true, completion: nil)
         }
         else if let text = pasword.text, text.isEmpty {
             //空白処理
             print("パスワードが空白")
+            //アラートを表示
+            let dialog = UIAlertController(title: "エラー", message: "パスワードが空白です。", preferredStyle: .alert)
+            dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
+            self.present(dialog, animated: true, completion: nil)
         }
         else {
             print("ユーザID：\(String(userId.text!))")
             print("パスワード：\(String(pasword.text!))")
             
             loginModel.getUserData(userId: String(userId.text!), password: String(pasword.text!))
-            //画面遷移
-            performSegue(withIdentifier: "nextMyPage", sender: nil)
+            if loginModel.resultMsg == "ログイン成功" {
+                //画面遷移
+                performSegue(withIdentifier: "nextMyPage", sender: nil)
+            } else {
+                print("ログイン失敗")
+                //アラートを表示
+                let dialog = UIAlertController(title: "エラー", message: "ユーザIDもしくはパスワードが正しくありません。", preferredStyle: .alert)
+                dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
+                self.present(dialog, animated: true, completion: nil)
+            }
         }
     }
     
@@ -51,13 +74,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    //画面遷移で値を渡す
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //loginModel.getUserData(userId: String(userId.text!), password: String(pasword.text!))
-        let nextVC = segue.destination as! MyPageViewController
-        nextVC.userDataList = loginModel.userDataList
     }
     
 }

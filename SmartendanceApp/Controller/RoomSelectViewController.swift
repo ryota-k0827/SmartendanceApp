@@ -13,30 +13,51 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    
-    var userDataList: Dictionary<String, String> = [:]
+    var attendanceModel = Attendance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         roomNumber.delegate = self
         
-        idLabel.text = userDataList["userId"]
-        nameLabel.text = userDataList["name"]
+        idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
+        nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
     }
     
     //出席ボタン
     @IBAction func attendance(_ sender: Any) {
         if let text = roomNumber.text, text.isEmpty {
-            print("教室番号が空白")
             //空白処理
+            print("教室番号が空白")
+            //アラートを表示
+            let dialog = UIAlertController(title: "エラー", message: "教室番号を入力してください。", preferredStyle: .alert)
+            dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
+            self.present(dialog, animated: true, completion: nil)
+            
         }
         else {
-            print("教室番号：\(String(describing: roomNumber.text))")
-            //画面遷移
-            performSegue(withIdentifier: "nextAttendanceComplete", sender: nil)
+            attendanceModel.getUid(classRoom: String(roomNumber.text!))
+            if attendanceModel.attendanceDataList["resultMsg"] == nil {
+                print("教室番号：\(String(describing: roomNumber.text))")
+                //画面遷移
+                performSegue(withIdentifier: "nextAttendanceComplete", sender: nil)
+            } else {
+                print(attendanceModel.attendanceDataList["resultMsg"]!)
+                //アラートを表示
+                let dialog = UIAlertController(title: "エラー", message: attendanceModel.attendanceDataList["resultMsg"]!, preferredStyle: .alert)
+                dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
+                self.present(dialog, animated: true, completion: nil)
+                
+            }
         }
     }
+    
+    //マイページボタン
+    @IBAction func myPageButton(_ sender: Any) {
+        //画面遷移
+        performSegue(withIdentifier: "backMyPage", sender: nil)
+    }
+    
     
     //タップでキーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -52,11 +73,14 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
     //画面遷移で値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        let nextVC = segue.destination as! AttendanceCompleteViewController
-        nextVC.userDataList = userDataList
-        //教室番号を受け渡し↓
-        let roomNunberText: String? = roomNumber.text
-        nextVC.roomNumberText = roomNunberText!
+        if segue.identifier == "nextAttendanceComplete" {
+            let nextVC = segue.destination as! AttendanceCompleteViewController
+            //教室番号を受け渡し↓
+    //        let roomNunberText: String? = roomNumber.text
+    //        nextVC.roomNumberText = roomNunberText!
+            
+            nextVC.attendanceDataList = attendanceModel.attendanceDataList
+        }
     }
     
     /*

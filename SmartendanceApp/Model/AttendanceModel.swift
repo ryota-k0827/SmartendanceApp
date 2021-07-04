@@ -11,8 +11,8 @@ import SwiftyJSON
 
 class Attendance{
     
-    //ログイン情報を格納
-    var attendanceDataList: Dictionary<String, String> = ["classRoomNuber":"", "classSymbol":"", "subject":"", "attendTime":"", "UUID":""]
+    //出席情報を格納
+    var attendanceDataList: Dictionary<String, String> = [:];
     
     func getUid(classRoom:String){
         let semaphore = DispatchSemaphore(value: 0)
@@ -38,13 +38,16 @@ class Attendance{
                 let json:JSON = JSON(response.data as Any)
                 print("JSONの中身↓")
                 print(json)
-                //if json["resultMsg"] === nil {
-                self.attendanceDataList["classRoomNuber"] = json["classRoomNuber"].string
-                self.attendanceDataList["classSymbol"] = json["classSymbol"].string
-                self.attendanceDataList["subject"] = json["subject"].string
-                self.attendanceDataList["attendTime"] = json["attendTime"].string
-                self.attendanceDataList["UUID"] = json["UUID"].string
-                //}
+                if json["resultMsg"].string == nil {
+                    self.attendanceDataList.removeValue(forKey: "resultMsg")
+                    self.attendanceDataList["classRoomNuber"] = json["classRoomNuber"].string
+                    self.attendanceDataList["classSymbol"] = json["classSymbol"].string
+                    self.attendanceDataList["subject"] = json["subject"].string
+                    self.attendanceDataList["attendTime"] = json["attendTime"].string
+                    self.attendanceDataList["UUID"] = json["UUID"].string
+                }else {
+                    self.attendanceDataList["resultMsg"] = json["resultMsg"].string
+                }
                 semaphore.signal()
                 
 //                print(self.userDataList["userId"]!)
@@ -53,8 +56,10 @@ class Attendance{
 //                print(self.userDataList["classId"]!)
                 
             case .failure(let error):
+                self.attendanceDataList["resultMsg"] = String("AFエラー")
                 print("AFエラー")
                 print(error)
+                semaphore.signal()
                 
             }
             

@@ -12,28 +12,19 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var userDataList: Dictionary<String, String> = [:]
+    var userType = (UserDefaults.standard.object(forKey: "userType") as! String)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("MyPageViewControllerに渡った値↓")
-        print(userDataList)
-        idLabel.text = userDataList["userId"]
-        nameLabel.text = userDataList["name"]
-    }
-    
-
-    //前の画面戻る
-    @IBAction func logout(_ sender: Any) {
         
-        dismiss(animated: true, completion: nil)
+        idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
+        nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
     }
     
     //出席確認ボタン
     @IBAction func attendanceCheck(_ sender: Any) {
         //教官画面遷移
-        if userDataList["userType"] == "teacher" {
+        if userType == "instructor" {
             performSegue(withIdentifier: "nextRoomSelectWithTeacher", sender: nil)
         }
         //生徒画面推移
@@ -45,26 +36,6 @@ class MyPageViewController: UIViewController {
     //成績照会ボタン
     @IBAction func nextResultPage(_ sender: Any) {
         performSegue(withIdentifier: "nextResultPage", sender: nil)
-    }
-    
-    //画面遷移で値を渡す
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        //出席確認ボタン押した時（教官）
-        if segue.identifier == "nextRoomSelectWithTeacher" {
-            let nextVC = segue.destination as! RoomSelectWithTeacherViewController
-            nextVC.userDataList = userDataList
-        }
-        //（生徒）
-        else if segue.identifier == "nextRoomSelect" {
-            let nextVC = segue.destination as! RoomSelectViewController
-            nextVC.userDataList = userDataList
-        }
-        //成績照会ボタン押した時
-        else if segue.identifier == "nextResultPage" {
-            let nextVC = segue.destination as! ResultViewController
-            nextVC.userDataList = userDataList
-        }
     }
     
     /*
