@@ -31,6 +31,12 @@ class AttendanceCheckWithTeacherViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //マイページボタン
+    @IBAction func myPageButton(_ sender: Any) {
+        //画面遷移
+        performSegue(withIdentifier: "backMyPage", sender: nil)
+    }
+    
 
     /*
     // MARK: - Navigation

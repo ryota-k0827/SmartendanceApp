@@ -11,7 +11,8 @@ import SwiftyJSON
 
 class Login{
     //ログイン情報を格納
-    var userDataList: Dictionary<String, String> = ["userId":"", "name":"", "userType":"", "classId":""]
+//    var userDataList: Dictionary<String, String> = [:]
+    var resultMsg = String()
     
     func getUserData(userId:String, password:String){
         let semaphore = DispatchSemaphore(value: 0)
@@ -26,7 +27,7 @@ class Login{
 //        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ (response) in
             
             
-        let url = "http://localhost/GitHub/Smartendance/login.php?userId=\(userId)&password=\(password)"
+        let url = "http://192.168.11.42/GitHub/Smartendance/login.php?userId=\(userId)&password=\(password)"
         
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in
@@ -37,11 +38,20 @@ class Login{
                 let json:JSON = JSON(response.data as Any)
                 print("JSONの中身↓")
                 print(json)
-                if json["result"].string == nil {
-                    self.userDataList["userId"] = json["userId"].string
-                    self.userDataList["name"] = json["name"].string
-                    self.userDataList["userType"] = json["type"].string
-                    self.userDataList["classId"] = json["classId"].string
+                if json["resultMsg"].string == nil {
+//                    self.userDataList.removeValue(forKey: "resultMsg")
+//                    self.userDataList["userId"] = json["userId"].string
+//                    self.userDataList["name"] = json["name"].string
+//                    self.userDataList["userType"] = json["type"].string
+//                    self.userDataList["classId"] = json["classId"].string
+                    self.resultMsg = "ログイン成功"
+                    UserDefaults.standard.set(json["userId"].string, forKey: "userId")
+                    UserDefaults.standard.set(json["name"].string, forKey: "name")
+                    UserDefaults.standard.set(json["type"].string, forKey: "userType")
+                    UserDefaults.standard.set(json["classId"].string, forKey: "classId")
+                } else {
+//                    self.userDataList["resultMsg"] = json["resultMsg"].string
+                    self.resultMsg = json["resultMsg"].string!
                 }
                 semaphore.signal()
                 
@@ -51,8 +61,11 @@ class Login{
 //                print(self.userDataList["classId"]!)
                 
             case .failure(let error):
+//                self.userDataList["resultMsg"] = String("AFエラー")
+                self.resultMsg = "AFエラー"
                 print("AFエラー")
                 print(error)
+                semaphore.signal()
                 
             }
             

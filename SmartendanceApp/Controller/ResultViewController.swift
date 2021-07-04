@@ -11,22 +11,21 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    
-    var userDataList: Dictionary<String, String> = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idLabel.text = userDataList["userId"]
-        nameLabel.text = userDataList["name"]
+        idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
+        nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
 
         // Do any additional setup after loading the view.
     }
     
-//    @IBAction func ResultAction(_ sender: Any) {
-//        //nextResultPage
-//        performSegue(withIdentifier: "nextResultPage", sender: nil)
-//    }
+    
+    @IBAction func myPageButton(_ sender: Any) {
+        //画面遷移
+        performSegue(withIdentifier: "backMyPage", sender: nil)
+    }
     
     /*
     // MARK: - Navigation

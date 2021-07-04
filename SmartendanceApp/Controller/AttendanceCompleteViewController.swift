@@ -12,21 +12,33 @@ class AttendanceCompleteViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
+    @IBOutlet weak var classSymbolLabel: UILabel!
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var attendTimeLabel: UILabel!
     
-    var userDataList: Dictionary<String, String> = [:]
-    var roomNumberText = ""
+    
+    var attendanceDataList: Dictionary<String, String> = [:]
+    //var roomNumberText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        idLabel.text = userDataList["userId"]
-        nameLabel.text = userDataList["name"]
-        roomLabel.text = roomNumberText
+        idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
+        nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
+        
+        roomLabel.text = attendanceDataList["classRoomNuber"]
+        classSymbolLabel.text = attendanceDataList["classSymbol"]
+        subjectLabel.text = attendanceDataList["subject"]
+        attendTimeLabel.text = attendanceDataList["attendTime"]
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func myPageButtom(_ sender: Any) {
+        //画面遷移
+        performSegue(withIdentifier: "backMyPage", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
