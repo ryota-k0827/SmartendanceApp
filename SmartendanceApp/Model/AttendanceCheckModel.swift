@@ -27,7 +27,7 @@ class AttendanceCheck{
 //        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ (response) in
             
             
-        let url = "https://3b7f98a69607.ngrok.io/GitHub/Smartendance/student_attend.php?class_room=\(classRoom)"
+        let url = "https://3b7f98a69607.ngrok.io/GitHub/Smartendance/attendance_confirmation.php?class_room=\(classRoom)"
         
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in

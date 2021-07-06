@@ -14,7 +14,7 @@ class Attendance{
     //出席情報を格納
     var attendanceDataList: Dictionary<String, String> = [:];
     
-    func getUid(classRoom:String){
+    func getUid(classRoom:String, userId:String, classId:String){
         let semaphore = DispatchSemaphore(value: 0)
         let queue = DispatchQueue.global(qos: .utility)
 //        let url = "http://192.168.11.42/GitHub/Smartendance/login.php"
@@ -27,7 +27,7 @@ class Attendance{
 //        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ (response) in
             
             
-        let url = "https://3b7f98a69607.ngrok.io/GitHub/Smartendance/student_attend.php?class_room=\(classRoom)"
+        let url = "https://3b7f98a69607.ngrok.io/GitHub/Smartendance/student_attend.php?class_room=\(classRoom)&user_id=\(userId)&class_id=\(classId)"
         
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in
