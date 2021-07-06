@@ -36,7 +36,7 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
             
         }
         else {
-            attendanceModel.getUid(classRoom: String(roomNumber.text!))
+            attendanceModel.getUid(classRoom: String(roomNumber.text!), userId: (UserDefaults.standard.object(forKey: "userId") as! String), classId: (UserDefaults.standard.object(forKey: "classId") as! String))
             if attendanceModel.attendanceDataList["resultMsg"] == nil {
                 print("教室番号：\(String(describing: roomNumber.text))")
                 //画面遷移
