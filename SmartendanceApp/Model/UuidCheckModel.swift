@@ -9,12 +9,13 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class AttendanceCheck{
+class UuidCheck{
     
     //出席情報を格納
-    var attendanceDataList: Dictionary<String, String> = [:];
+    var BeaconUuid = String()
+    var resultMsg = ""
     
-    func getAttendanceData(classRoom:String){
+    func getUid(classRoom:String, userId:String, classId:String){
         let semaphore = DispatchSemaphore(value: 0)
         let queue = DispatchQueue.global(qos: .utility)
 //        let url = "http://192.168.11.42/GitHub/Smartendance/login.php"
@@ -27,7 +28,7 @@ class AttendanceCheck{
 //        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ (response) in
             
             
-        let url = "https://3b7f98a69607.ngrok.io/GitHub/Smartendance/attendance_confirmation.php?class_room=\(classRoom)"
+        let url = "https://d679ed892352.ngrok.io/GitHub/Smartendance/class_select.php?class_room=\(classRoom)&user_id=\(userId)&class_id=\(classId)"
         
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in
@@ -39,14 +40,10 @@ class AttendanceCheck{
                 print("JSONの中身↓")
                 print(json)
                 if json["resultMsg"].string == nil {
-                    self.attendanceDataList.removeValue(forKey: "resultMsg")
-                    self.attendanceDataList["classRoomNuber"] = json["classRoomNuber"].string
-                    self.attendanceDataList["classSymbol"] = json["classSymbol"].string
-                    self.attendanceDataList["subject"] = json["subject"].string
-                    self.attendanceDataList["attendTime"] = json["attendTime"].string
-                    self.attendanceDataList["UUID"] = json["UUID"].string
+                    self.resultMsg = ""
+                    self.BeaconUuid = json["UUID"].string!
                 }else {
-                    self.attendanceDataList["resultMsg"] = json["resultMsg"].string
+                    self.resultMsg = json["resultMsg"].string!
                 }
                 semaphore.signal()
                 
@@ -56,7 +53,7 @@ class AttendanceCheck{
 //                print(self.userDataList["classId"]!)
                 
             case .failure(let error):
-                self.attendanceDataList["resultMsg"] = String("AFエラー")
+                self.resultMsg = "AFエラー"
                 print("AFエラー")
                 print(error)
                 semaphore.signal()

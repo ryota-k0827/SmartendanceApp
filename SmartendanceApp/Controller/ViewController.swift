@@ -11,6 +11,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var userId: UITextField!
     @IBOutlet weak var pasword: UITextField!
+    @IBOutlet weak var loginButtonOutlet: UIButton!
+    
     
     var loginModel = Login()
     
@@ -22,6 +24,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }else {
             print("初回起動です。")
             super.viewDidLoad()
+            loginButtonOutlet.layer.cornerRadius = 10.0
             
             userId.delegate = self
             pasword.delegate = self

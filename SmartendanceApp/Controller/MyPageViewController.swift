@@ -12,10 +12,16 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var attendButton: UIButton!
+    @IBOutlet weak var resultButton: UIButton!
+    
     var userType = (UserDefaults.standard.object(forKey: "userType") as! String)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        attendButton.layer.cornerRadius = 10.0
+        resultButton.layer.cornerRadius = 10.0
         
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
         nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)

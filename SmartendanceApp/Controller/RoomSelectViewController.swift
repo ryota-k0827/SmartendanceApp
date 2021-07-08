@@ -13,10 +13,17 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var attendButton: UIButton!
+    @IBOutlet weak var myPageButtonOutlet: UIButton!
+    
     var attendanceModel = Attendance()
+    var beaconModel = UuidCheck()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        attendButton.layer.cornerRadius = 10.0
+        myPageButtonOutlet.layer.cornerRadius = 10.0
 
         roomNumber.delegate = self
         
@@ -36,15 +43,15 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
             
         }
         else {
-            attendanceModel.getUid(classRoom: String(roomNumber.text!), userId: (UserDefaults.standard.object(forKey: "userId") as! String), classId: (UserDefaults.standard.object(forKey: "classId") as! String))
-            if attendanceModel.attendanceDataList["resultMsg"] == nil {
+            beaconModel.getUid(classRoom: String(roomNumber.text!), userId: (UserDefaults.standard.object(forKey: "userId") as! String), classId: (UserDefaults.standard.object(forKey: "classId") as! String))
+            if beaconModel.resultMsg == "" {
                 print("教室番号：\(String(describing: roomNumber.text))")
                 //画面遷移
-                performSegue(withIdentifier: "nextAttendanceComplete", sender: nil)
+                performSegue(withIdentifier: "nextBeaconSearch", sender: nil)
             } else {
-                print(attendanceModel.attendanceDataList["resultMsg"]!)
+                print(beaconModel.resultMsg)
                 //アラートを表示
-                let dialog = UIAlertController(title: "エラー", message: attendanceModel.attendanceDataList["resultMsg"]!, preferredStyle: .alert)
+                let dialog = UIAlertController(title: "エラー", message: beaconModel.resultMsg, preferredStyle: .alert)
                 dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
                 self.present(dialog, animated: true, completion: nil)
                 
@@ -73,13 +80,21 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
     //画面遷移で値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if segue.identifier == "nextAttendanceComplete" {
-            let nextVC = segue.destination as! AttendanceCompleteViewController
+//        if segue.identifier == "nextAttendanceComplete" {
+//            let nextVC = segue.destination as! AttendanceCompleteViewController
+//            //教室番号を受け渡し↓
+//            let roomNunberText: String? = roomNumber.text
+//            nextVC.roomNumberText = roomNunberText!
+//
+//            nextVC.attendanceDataList = attendanceModel.attendanceDataList
+//        }
+        
+        if segue.identifier == "nextBeaconSearch" {
+            let nextVC = segue.destination as! BeaconSearchViewController
             //教室番号を受け渡し↓
-    //        let roomNunberText: String? = roomNumber.text
-    //        nextVC.roomNumberText = roomNunberText!
-            
-            nextVC.attendanceDataList = attendanceModel.attendanceDataList
+            let roomNunberText: String? = roomNumber.text
+            nextVC.roomNumberText = roomNunberText!
+            nextVC.beaconUUID = beaconModel.BeaconUuid
         }
     }
     
