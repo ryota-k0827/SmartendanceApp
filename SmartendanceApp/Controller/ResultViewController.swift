@@ -12,8 +12,12 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
 
+    @IBOutlet weak var myPageButtonOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myPageButtonOutlet.layer.cornerRadius = 10.0
         
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
         nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)

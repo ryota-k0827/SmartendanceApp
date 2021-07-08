@@ -63,6 +63,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="loginButtonOutlet" destination="0uh-hd-0cg" id="EX6-r5-1XW"/>
                         <outlet property="pasword" destination="M4X-5o-gTY" id="s1e-12-2e3"/>
                         <outlet property="userId" destination="WIF-gW-bod" id="ZZ4-eg-RBL"/>
                         <segue destination="cWl-Ib-qLr" kind="presentation" identifier="nextMyPage" id="mGx-a0-PpO"/>
@@ -142,8 +143,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="attendButton" destination="lWd-rQ-yeT" id="T50-Wo-lkZ"/>
                         <outlet property="idLabel" destination="oC7-RU-ScI" id="JOx-Ik-78Y"/>
                         <outlet property="nameLabel" destination="cNj-EA-I7E" id="H6h-vy-T95"/>
+                        <outlet property="resultButton" destination="68T-IS-wdF" id="Ouj-Ds-0fe"/>
                         <segue destination="VeV-NF-cmC" kind="presentation" identifier="nextRoomSelect" id="4OW-4w-Zlz"/>
                         <segue destination="5zx-0Q-y9i" kind="presentation" identifier="nextRoomSelectWithTeacher" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="blb-8A-tgv"/>
                         <segue destination="D8P-Ur-XOv" kind="presentation" identifier="nextResultPage" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="34p-Wk-0oH"/>
@@ -236,11 +239,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="attendButton" destination="U7a-nc-kHk" id="3g6-jl-urx"/>
                         <outlet property="idLabel" destination="eT7-eQ-Kmf" id="DIp-su-Atz"/>
+                        <outlet property="myPageButtonOutlet" destination="3FF-qH-qQ7" id="bi4-d2-XCR"/>
                         <outlet property="nameLabel" destination="mXz-aE-PrP" id="vX2-7t-9MX"/>
                         <outlet property="roomNumber" destination="R8W-d9-vgV" id="Cwy-iF-TJp"/>
-                        <segue destination="23P-LB-HeJ" kind="presentation" identifier="nextAttendanceComplete" id="FSo-Gq-qjj"/>
                         <segue destination="cWl-Ib-qLr" kind="presentation" identifier="backMyPage" id="5Xh-2u-79L"/>
+                        <segue destination="CYo-oR-VaJ" kind="presentation" identifier="nextBeaconSearch" id="0PP-Jo-EvX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vo-eW-puq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -271,8 +276,8 @@
                                     <action selector="myPageButtom:" destination="23P-LB-HeJ" eventType="touchUpInside" id="6j5-07-Auy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="出席完了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUl-OO-Pgh">
-                                <rect key="frame" x="16" y="254" width="343" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="入室完了" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUl-OO-Pgh">
+                                <rect key="frame" x="16" y="242" width="343" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
@@ -342,7 +347,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="null" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92n-10-44l">
-                                <rect key="frame" x="164" y="419" width="115" height="17"/>
+                                <rect key="frame" x="164" y="419" width="166" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -362,6 +367,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adj-ax-6Wz">
+                                <rect key="frame" x="26" y="286" width="322" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2d7-7i-c61"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -370,15 +382,18 @@
                         <outlet property="attendTimeLabel" destination="92n-10-44l" id="IYg-P5-pj3"/>
                         <outlet property="classSymbolLabel" destination="0wj-vK-BUM" id="urx-UA-ofk"/>
                         <outlet property="idLabel" destination="r3a-iA-uhd" id="DQK-tu-f6U"/>
+                        <outlet property="myPageButtonOutlet" destination="4hE-Wo-WUj" id="YcK-hk-bCr"/>
                         <outlet property="nameLabel" destination="WfJ-PX-Tpp" id="cYe-E7-j6O"/>
+                        <outlet property="resultMsgLabel" destination="adj-ax-6Wz" id="UTj-P1-CDM"/>
                         <outlet property="roomLabel" destination="oDm-2A-NbI" id="UeB-bk-jHh"/>
+                        <outlet property="statusLabel" destination="PUl-OO-Pgh" id="Bjp-Td-fg3"/>
                         <outlet property="subjectLabel" destination="vm4-o2-4g1" id="wea-xg-D55"/>
                         <segue destination="cWl-Ib-qLr" kind="presentation" identifier="backMyPage" id="COy-Mg-Cxh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pd7-yG-dRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2781.5999999999999" y="107.49625187406298"/>
+            <point key="canvasLocation" x="3804" y="106.59670164917542"/>
         </scene>
         <!--Room Select With Teacher View Controller-->
         <scene sceneID="RAK-Qk-q1B">
@@ -462,7 +477,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="attendCheckButton" destination="zSi-UZ-4cm" id="fF8-aW-TAi"/>
                         <outlet property="idLabel" destination="Pb3-Wj-NmF" id="cOs-AC-5z8"/>
+                        <outlet property="myPageButtonOutlet" destination="cDd-UK-2yr" id="4vi-P7-3ze"/>
                         <outlet property="nameLabel" destination="Hdx-ri-BtD" id="RU9-cb-e8g"/>
                         <outlet property="roomNumberWithTeacher" destination="nfq-jn-Eeu" id="yff-2s-e78"/>
                         <segue destination="e6a-OB-wdN" kind="presentation" identifier="nextAttendanceCheckWithTeacher" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zrv-9a-maL"/>
@@ -610,6 +627,7 @@
                     <connections>
                         <outlet property="classLabel" destination="5xj-Va-pZP" id="yvz-yW-3uj"/>
                         <outlet property="idLabel" destination="oER-pM-7m7" id="B60-jH-qUa"/>
+                        <outlet property="myPageButtonOutlet" destination="E0q-6J-UCO" id="BnB-5S-JZm"/>
                         <outlet property="nameLabel" destination="YNK-hq-0wW" id="QgD-iI-Zm1"/>
                         <outlet property="roomNumLabel" destination="pMd-ah-FZj" id="Ec0-D1-ucY"/>
                         <outlet property="subjectLabel" destination="pPI-48-no0" id="f22-2k-9PO"/>
@@ -680,12 +698,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="まだ準備中です。。。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rE3-2F-Ak1">
+                                <rect key="frame" x="100" y="323" width="174" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8ee-to-dpf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="idLabel" destination="cVQ-Uk-bDr" id="3i4-I1-LE1"/>
+                        <outlet property="myPageButtonOutlet" destination="b2b-xX-FfX" id="26u-kX-cwP"/>
                         <outlet property="nameLabel" destination="x62-0A-spL" id="BUU-CU-da2"/>
                         <segue destination="cWl-Ib-qLr" kind="presentation" identifier="backMyPage" id="xbQ-Dl-Odg"/>
                     </connections>
@@ -694,9 +720,105 @@
             </objects>
             <point key="canvasLocation" x="1873" y="-718"/>
         </scene>
+        <!--Beacon Search View Controller-->
+        <scene sceneID="mHh-qM-axB">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="CYo-oR-VaJ" customClass="BeaconSearchViewController" customModule="SmartendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PZe-Bi-23f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6bK-5R-zGa">
+                                <rect key="frame" x="16" y="20" width="343" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFl-P5-jTa">
+                                <rect key="frame" x="77" y="513" width="221" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="中止">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButton:" destination="CYo-oR-VaJ" eventType="touchUpInside" id="64w-dN-8WU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ビーコン探索中..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQo-hS-wP9">
+                                <rect key="frame" x="16" y="220" width="343" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ユーザID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8Y-zf-4ws">
+                                <rect key="frame" x="16" y="156" width="71" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="null" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tu9-UR-tV8">
+                                <rect key="frame" x="83" y="156" width="100" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="教室番号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHv-oi-4um">
+                                <rect key="frame" x="95" y="274" width="72" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="null" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i36-xx-ZgO">
+                                <rect key="frame" x="164" y="274" width="115" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9S-Bf-yDS">
+                                <rect key="frame" x="225" y="156" width="43" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="null" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTh-SN-Foc">
+                                <rect key="frame" x="265" y="156" width="100" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2de-cL-rgv">
+                                <rect key="frame" x="177" y="369" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sha-iC-VjW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="idLabel" destination="Tu9-UR-tV8" id="Lye-v8-6fP"/>
+                        <outlet property="nameLabel" destination="XTh-SN-Foc" id="SlN-1F-BUh"/>
+                        <outlet property="roadIndicator" destination="2de-cL-rgv" id="7oI-sF-QJS"/>
+                        <outlet property="roomNumberLabel" destination="i36-xx-ZgO" id="B9w-qX-GoB"/>
+                        <outlet property="stopButtonOutlet" destination="KFl-P5-jTa" id="Flo-Sc-GTT"/>
+                        <segue destination="VeV-NF-cmC" kind="presentation" identifier="backMyPage" id="ZQ8-oF-ozG"/>
+                        <segue destination="23P-LB-HeJ" kind="presentation" identifier="nextAttendanceComplete" id="axP-ic-8K2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="suI-Ka-uEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2865" y="108"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oeS-RR-dhi"/>
+        <segue reference="4OW-4w-Zlz"/>
+        <segue reference="COy-Mg-Cxh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="1734" height="445"/>
@@ -708,6 +830,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -20,10 +20,14 @@ class AttendanceCheckWithTeacherViewController: UIViewController {
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var myPageButtonOutlet: UIButton!
+    
     var userDataList: Dictionary<String, String> = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myPageButtonOutlet.layer.cornerRadius = 10.0
         
         idLabel.text = userDataList["userId"]
         nameLabel.text = userDataList["name"]

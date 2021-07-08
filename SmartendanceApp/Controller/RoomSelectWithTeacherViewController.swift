@@ -14,10 +14,16 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var attendanceCheckModel = AttendanceCheck()
+    @IBOutlet weak var attendCheckButton: UIButton!
+    @IBOutlet weak var myPageButtonOutlet: UIButton!
+    
+    //var attendanceCheckModel = AttendanceCheck()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        attendCheckButton.layer.cornerRadius = 10.0
+        myPageButtonOutlet.layer.cornerRadius = 10.0
 
         roomNumberWithTeacher.delegate = self
         
@@ -60,7 +66,7 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
 
         if segue.identifier == "nextAttendanceCheckWithTeacher" {
             let nextVC = segue.destination as! AttendanceCheckWithTeacherViewController
-            nextVC.userDataList = attendanceCheckModel.attendanceDataList
+            //nextVC.userDataList = attendanceCheckModel.attendanceDataList
         }
        
     }

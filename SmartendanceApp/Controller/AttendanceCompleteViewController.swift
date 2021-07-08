@@ -11,10 +11,17 @@ class AttendanceCompleteViewController: UIViewController {
 
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var resultMsgLabel: UILabel!
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var classSymbolLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!
     @IBOutlet weak var attendTimeLabel: UILabel!
+    
+    
+    @IBOutlet weak var myPageButtonOutlet: UIButton!
     
     
     var attendanceDataList: Dictionary<String, String> = [:]
@@ -23,9 +30,14 @@ class AttendanceCompleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        myPageButtonOutlet.layer.cornerRadius = 10.0
+        
+        //print(attendanceDataList)
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
         nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
         
+        statusLabel.text = attendanceDataList["status"]
+        resultMsgLabel.text = attendanceDataList["resultMsg"]
         roomLabel.text = attendanceDataList["classRoomNuber"]
         classSymbolLabel.text = attendanceDataList["classSymbol"]
         subjectLabel.text = attendanceDataList["subject"]
