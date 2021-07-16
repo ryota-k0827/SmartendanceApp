@@ -1,5 +1,5 @@
 //
-//  Login.swift
+//  AttendanceModel.swift
 //  SmartendanceApp
 //
 //  Created by Ryota Kaneko on 2021/07/03.
@@ -27,7 +27,7 @@ class Attendance{
 //        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ (response) in
             
             
-        let url = "https://d679ed892352.ngrok.io/GitHub/Smartendance/student_attend.php?class_room=\(classRoom)&user_id=\(userId)&class_id=\(classId)"
+        let url = "https://06392f6d0b82.ngrok.io/GitHub/Smartendance/student_attend.php?class_room=\(classRoom)&user_id=\(userId)&class_id=\(classId)"
         
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in

@@ -137,8 +137,21 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
             myLocationManager.stopMonitoring(for: myBeaconRegion)
             //出席処理
             attendanceModel.attendanceProcess(classRoom: roomNumberText, userId: (UserDefaults.standard.object(forKey: "userId") as! String), classId: (UserDefaults.standard.object(forKey: "classId") as! String))
-            //画面遷移
-            performSegue(withIdentifier: "nextAttendanceComplete", sender: nil)
+            if attendanceModel.attendanceDataList["resultMsg"] == "AFエラー" {
+                let dialog = UIAlertController(title: "エラー", message: attendanceModel.attendanceDataList["resultMsg"], preferredStyle: .alert)
+                dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: {
+                    (action:UIAlertAction!) -> Void in
+                    //ビーコン探索停止処理
+                    self.myLocationManager = CLLocationManager()
+                    self.myLocationManager.stopMonitoring(for: self.myBeaconRegion)
+                    //画面遷移
+                    self.performSegue(withIdentifier: "backMyPage", sender: nil)
+                }))
+                self.present(dialog, animated: true, completion: nil)
+            } else {
+                //画面遷移
+                performSegue(withIdentifier: "nextAttendanceComplete", sender: nil)
+            }
 
             manager.startRangingBeacons(in: region as! CLBeaconRegion)
             break;
@@ -217,11 +230,21 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
         //regionNumber.text = "1"
         print("ビーコンの領域内")
         
-        //ビーコン探索停止処理
-        myLocationManager = CLLocationManager()
-        myLocationManager.stopMonitoring(for: myBeaconRegion)
-        //画面遷移
-        performSegue(withIdentifier: "nextAttendanceComplete", sender: nil)
+        if attendanceModel.attendanceDataList["resultMsg"] == "AFエラー" {
+            let dialog = UIAlertController(title: "エラー", message: attendanceModel.attendanceDataList["resultMsg"], preferredStyle: .alert)
+            dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: {
+                (action:UIAlertAction!) -> Void in
+                //ビーコン探索停止処理
+                self.myLocationManager = CLLocationManager()
+                self.myLocationManager.stopMonitoring(for: self.myBeaconRegion)
+                //画面遷移
+                self.performSegue(withIdentifier: "backMyPage", sender: nil)
+            }))
+            self.present(dialog, animated: true, completion: nil)
+        } else {
+            //画面遷移
+            performSegue(withIdentifier: "nextAttendanceComplete", sender: nil)
+        }
         
         print("didEnterRegion: iBeacon found");
         manager.startRangingBeacons(in: region as! CLBeaconRegion)

@@ -18,19 +18,27 @@ class AttendanceCheckWithTeacherViewController: UIViewController {
     @IBOutlet weak var roomNumLabel: UILabel!
     @IBOutlet weak var classLabel: UILabel!
     @IBOutlet weak var subjectLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var countPeopleLabel: UILabel!
+    
     
     @IBOutlet weak var myPageButtonOutlet: UIButton!
     
-    var userDataList: Dictionary<String, String> = [:]
+    var attendDataList: Dictionary<String, String> = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(attendDataList)
+        
         myPageButtonOutlet.layer.cornerRadius = 10.0
         
-        idLabel.text = userDataList["userId"]
-        nameLabel.text = userDataList["name"]
+        idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
+        nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
+        
+        roomNumLabel.text = attendDataList["classRoomNumber"]
+        classLabel.text = attendDataList["classSymbol"]
+        subjectLabel.text = attendDataList["subject"]
+        countPeopleLabel.text = attendDataList["number_of_attendees"]! + "/" + attendDataList["class_size"]!
 
         // Do any additional setup after loading the view.
     }

@@ -1,21 +1,21 @@
 //
-//  UuidCheckModel.swift
+//  AttendanceCheckModel.swift
 //  SmartendanceApp
 //
-//  Created by Ryota Kaneko on 2021/07/03.
+//  Created by Ryota Kaneko on 2021/07/13.
 //
 
 import Foundation
 import Alamofire
 import SwiftyJSON
 
-class UuidCheck{
+class AttendanceCheck{
     
     //出席情報を格納
-    var BeaconUuid = String()
+    var attendanceDataList: Dictionary<String, String> = [:];
     var resultMsg = ""
     
-    func getUid(classRoom:String, userId:String, classId:String){
+    func attendanceProcess(classRoom:String){
         let semaphore = DispatchSemaphore(value: 0)
         let queue = DispatchQueue.global(qos: .utility)
 //        let url = "http://192.168.11.42/GitHub/Smartendance/login.php"
@@ -28,7 +28,7 @@ class UuidCheck{
 //        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ (response) in
             
             
-        let url = "https://06392f6d0b82.ngrok.io/GitHub/Smartendance/class_select.php?class_room=\(classRoom)&user_id=\(userId)&class_id=\(classId)"
+        let url = "https://06392f6d0b82.ngrok.io/GitHub/Smartendance/attendance_confirmation.php?class_room=\(classRoom)"
         
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in
@@ -39,11 +39,17 @@ class UuidCheck{
                 let json:JSON = JSON(response.data as Any)
                 print("JSONの中身↓")
                 print(json)
-                if json["resultMsg"].string == nil {
+                if json["result"].string == nil {
                     self.resultMsg = ""
-                    self.BeaconUuid = json["UUID"].string!
-                }else {
-                    self.resultMsg = json["resultMsg"].string!
+                    self.attendanceDataList["classRoomNumber"] = json["classRoomNumber"].string
+                    self.attendanceDataList["classSymbol"] = json["classSymbol"].string
+                    self.attendanceDataList["subject"] = json["subject"].string
+                    self.attendanceDataList["number_of_attendees"] = json["number_of_attendees"].string
+                    self.attendanceDataList["class_size"] = json["class_size"].string
+                    self.attendanceDataList["absenteeNumber"] = json["absenteeNumber"].string
+                    self.attendanceDataList["absenteeName"] = json["absenteeName"].string
+                } else {
+                    self.resultMsg = json["result"].string!
                 }
                 semaphore.signal()
                 
