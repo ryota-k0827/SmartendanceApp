@@ -17,18 +17,20 @@ class Login{
     func getUserData(userId:String, password:String){
         let semaphore = DispatchSemaphore(value: 0)
         let queue = DispatchQueue.global(qos: .utility)
-//        let url = "http://192.168.11.42/GitHub/Smartendance/login.php"
+//        let url = "https://06392f6d0b82.ngrok.io/GitHub/Smartendance/login.php"
 //        let headers: HTTPHeaders = [
-//                    "Contenttype": "application/json"
+//                    "Content-Type": "application/x-www-form-urlencoded"
 //                ]
-//        let parameters = ["userId": userId, "password": password]
-//
+//        let parameters: [String: String] = [
+//            "userId": userId, "password": password
+//        ]
+
 //        //Alamofireを使ってhttpリクエストを投げる。
-//        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ (response) in
+//        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(queue: queue){ (response) in
             
             
-        let url = "https://d679ed892352.ngrok.io/GitHub/Smartendance/login.php?userId=\(userId)&password=\(password)"
-        
+        let url = "https://06392f6d0b82.ngrok.io/GitHub/Smartendance/login.php?userId=\(userId)&password=\(password)"
+
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in
             

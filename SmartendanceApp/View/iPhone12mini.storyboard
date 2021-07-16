@@ -384,7 +384,9 @@
                         <outlet property="idLabel" destination="akL-Cm-FRO" id="mTd-9D-iuF"/>
                         <outlet property="myPageButtonOutlet" destination="P8t-wb-7TT" id="7ey-pa-ifJ"/>
                         <outlet property="nameLabel" destination="6TF-mj-P6X" id="vsv-ct-5KL"/>
+                        <outlet property="resultMsgLabel" destination="LDM-wL-LOc" id="9qj-cC-Dx3"/>
                         <outlet property="roomLabel" destination="9pW-uJ-cFe" id="7du-Lz-5Ua"/>
+                        <outlet property="statusLabel" destination="xxk-PA-0sz" id="xjZ-KV-OXq"/>
                         <outlet property="subjectLabel" destination="Mcr-XV-bTi" id="8eE-iY-HnI"/>
                         <segue destination="kbs-Aw-Xyg" kind="presentation" identifier="backMyPage" id="BpV-fX-pjt"/>
                     </connections>

@@ -17,7 +17,7 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var attendCheckButton: UIButton!
     @IBOutlet weak var myPageButtonOutlet: UIButton!
     
-    //var attendanceCheckModel = AttendanceCheck()
+    var attendanceCheckModel = AttendanceCheck()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +35,23 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
         if let text = roomNumberWithTeacher.text, text.isEmpty {
             //空白処理
             print("教室番号が空白")
+            //アラートを表示
+            let dialog = UIAlertController(title: "エラー", message: "教室番号を入力してください。", preferredStyle: .alert)
+            dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
+            self.present(dialog, animated: true, completion: nil)
         }
         else {
-            print("教室番号：\(String(describing: roomNumberWithTeacher.text))")
-            //画面遷移
-            performSegue(withIdentifier: "nextAttendanceCheckWithTeacher", sender: nil)
+            attendanceCheckModel.attendanceProcess(classRoom: String(roomNumberWithTeacher.text!))
+            if attendanceCheckModel.resultMsg == "" {
+                print("教室番号：\(String(describing: roomNumberWithTeacher.text))")
+                //画面遷移
+                performSegue(withIdentifier: "nextAttendanceCheckWithTeacher", sender: nil)
+            } else {
+                //アラートを表示
+                let dialog = UIAlertController(title: "エラー", message: attendanceCheckModel.resultMsg, preferredStyle: .alert)
+                dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
+                self.present(dialog, animated: true, completion: nil)
+            }
         }
     }
     
@@ -66,7 +78,7 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
 
         if segue.identifier == "nextAttendanceCheckWithTeacher" {
             let nextVC = segue.destination as! AttendanceCheckWithTeacherViewController
-            //nextVC.userDataList = attendanceCheckModel.attendanceDataList
+            nextVC.attendDataList = attendanceCheckModel.attendanceDataList
         }
        
     }

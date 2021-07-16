@@ -32,7 +32,7 @@ class AttendanceCompleteViewController: UIViewController {
         
         myPageButtonOutlet.layer.cornerRadius = 10.0
         
-        //print(attendanceDataList)
+        print(attendanceDataList)
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
         nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
         
