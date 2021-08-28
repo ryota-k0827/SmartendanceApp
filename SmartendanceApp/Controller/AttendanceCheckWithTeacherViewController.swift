@@ -75,13 +75,5 @@ class AttendanceCheckWithTeacherViewController: UIViewController, UITableViewDel
         cell.textLabel?.text = absenceNumber[indexPath.row] + " " + absenceName[indexPath.row]
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return view.frame.size.height/6
-//    }
 
 }

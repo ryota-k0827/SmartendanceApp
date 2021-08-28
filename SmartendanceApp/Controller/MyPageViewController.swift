@@ -13,15 +13,13 @@ class MyPageViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var attendButton: UIButton!
-    @IBOutlet weak var resultButton: UIButton!
     
     var userType = (UserDefaults.standard.object(forKey: "userType") as! String)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         attendButton.layer.cornerRadius = 10.0
-        resultButton.layer.cornerRadius = 10.0
         
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
         nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
@@ -38,20 +36,5 @@ class MyPageViewController: UIViewController {
             performSegue(withIdentifier: "nextRoomSelect", sender: nil)
         }
     }
-    
-    //成績照会ボタン
-    @IBAction func nextResultPage(_ sender: Any) {
-        performSegue(withIdentifier: "nextResultPage", sender: nil)
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
