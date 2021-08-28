@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1C7F7D985B287664383A7E26 /* Pods_SmartendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE13D463B051FED04A4E5288 /* Pods_SmartendanceApp.framework */; };
 		A30ACE60268EE64D00F1365B /* AttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30ACE5F268EE64D00F1365B /* AttendanceModel.swift */; };
-		A32B1052268969C700114F13 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32B1051268969C700114F13 /* ResultViewController.swift */; };
 		A338F2CE269D85D700015BC7 /* AttendanceCheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A338F2CD269D85D700015BC7 /* AttendanceCheckModel.swift */; };
 		A3B894B32688C4BE00715BB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B894B22688C4BE00715BB4 /* AppDelegate.swift */; };
 		A3B894B52688C4BE00715BB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B894B42688C4BE00715BB4 /* SceneDelegate.swift */; };
@@ -32,7 +31,6 @@
 /* Begin PBXFileReference section */
 		7046409DBEA071946198C5C0 /* Pods-SmartendanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartendanceApp.release.xcconfig"; path = "Target Support Files/Pods-SmartendanceApp/Pods-SmartendanceApp.release.xcconfig"; sourceTree = "<group>"; };
 		A30ACE5F268EE64D00F1365B /* AttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModel.swift; sourceTree = "<group>"; };
-		A32B1051268969C700114F13 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		A338F2CD269D85D700015BC7 /* AttendanceCheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCheckModel.swift; sourceTree = "<group>"; };
 		A3B894AF2688C4BE00715BB4 /* SmartendanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartendanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B894B22688C4BE00715BB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				A3B894C62688D4BE00715BB4 /* MyPageViewController.swift */,
 				A3C81A042688DEC600F8B3F5 /* RoomSelectViewController.swift */,
 				A3B894CA2688DA3800715BB4 /* AttendanceCompleteViewController.swift */,
-				A32B1051268969C700114F13 /* ResultViewController.swift */,
 				A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */,
 				A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */,
 				A3E976722694A7B9002E56A8 /* BeaconSearchViewController.swift */,
@@ -282,7 +279,6 @@
 				A3CCA8202688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift in Sources */,
 				A3B894B52688C4BE00715BB4 /* SceneDelegate.swift in Sources */,
 				A3B894C72688D4BE00715BB4 /* MyPageViewController.swift in Sources */,
-				A32B1052268969C700114F13 /* ResultViewController.swift in Sources */,
 				A338F2CE269D85D700015BC7 /* AttendanceCheckModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
