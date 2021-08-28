@@ -74,11 +74,14 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
     }
     
     //画面遷移で値を渡す
+    //出席情報を受け渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "nextAttendanceCheckWithTeacher" {
             let nextVC = segue.destination as! AttendanceCheckWithTeacherViewController
             nextVC.attendDataList = attendanceCheckModel.attendanceDataList
+            nextVC.absenceNumber = attendanceCheckModel.absenceNumber
+            nextVC.absenceName = attendanceCheckModel.absenceName
         }
        
     }

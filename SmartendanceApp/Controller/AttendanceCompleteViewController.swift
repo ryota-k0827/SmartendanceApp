@@ -25,40 +25,29 @@ class AttendanceCompleteViewController: UIViewController {
     
     
     var attendanceDataList: Dictionary<String, String> = [:]
-    //var roomNumberText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //ボタンを丸くする
         myPageButtonOutlet.layer.cornerRadius = 10.0
         
-        print(attendanceDataList)
+        //ユーザ情報をラベルに代入
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
         nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
         
+        //取得情報をラベルに代入
         statusLabel.text = attendanceDataList["status"]
         resultMsgLabel.text = attendanceDataList["resultMsg"]
         roomLabel.text = attendanceDataList["classRoomNuber"]
         classSymbolLabel.text = attendanceDataList["classSymbol"]
         subjectLabel.text = attendanceDataList["subject"]
         attendTimeLabel.text = attendanceDataList["attendTime"]
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func myPageButtom(_ sender: Any) {
         //画面遷移
         performSegue(withIdentifier: "backMyPage", sender: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

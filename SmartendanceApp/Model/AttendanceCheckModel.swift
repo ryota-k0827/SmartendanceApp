@@ -13,7 +13,10 @@ class AttendanceCheck{
     
     //出席情報を格納
     var attendanceDataList: Dictionary<String, String> = [:];
+    var absenceNumber: [String] = []
+    var absenceName: [String] = []
     var resultMsg = ""
+//    var absenceDataList: Dictionary<
     
     func attendanceProcess(classRoom:String){
         let semaphore = DispatchSemaphore(value: 0)
@@ -28,7 +31,7 @@ class AttendanceCheck{
 //        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ (response) in
             
             
-        let url = "https://06392f6d0b82.ngrok.io/GitHub/Smartendance/attendance_confirmation.php?class_room=\(classRoom)"
+        let url = "https://f4c8-240b-250-1a0-1b10-88ea-1a20-4719-bfde.ngrok.io/Smartendance/attendance_confirmation.php?class_room=\(classRoom)"
         
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in
@@ -46,17 +49,18 @@ class AttendanceCheck{
                     self.attendanceDataList["subject"] = json["subject"].string
                     self.attendanceDataList["number_of_attendees"] = json["number_of_attendees"].string
                     self.attendanceDataList["class_size"] = json["class_size"].string
-                    self.attendanceDataList["absenteeNumber"] = json["absenteeNumber"].string
-                    self.attendanceDataList["absenteeName"] = json["absenteeName"].string
+                    
+                    for (key, value) in json["absenteeNumber"] {
+                        self.absenceNumber.append("\(value)")
+                        let name = json["absenteeName"][Int(key)!]
+                        self.absenceName.append("\(name)")
+                    }
+                    
+                    
                 } else {
                     self.resultMsg = json["result"].string!
                 }
                 semaphore.signal()
-                
-//                print(self.userDataList["userId"]!)
-//                print(self.userDataList["name"]!)
-//                print(self.userDataList["userType"]!)
-//                print(self.userDataList["classId"]!)
                 
             case .failure(let error):
                 self.resultMsg = "AFエラー"

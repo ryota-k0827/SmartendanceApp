@@ -27,7 +27,7 @@ class Attendance{
 //        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ (response) in
             
             
-        let url = "https://06392f6d0b82.ngrok.io/GitHub/Smartendance/student_attend.php?class_room=\(classRoom)&user_id=\(userId)&class_id=\(classId)"
+        let url = "https://f4c8-240b-250-1a0-1b10-88ea-1a20-4719-bfde.ngrok.io/Smartendance/student_attend.php?class_room=\(classRoom)&user_id=\(userId)&class_id=\(classId)"
         
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in
@@ -45,11 +45,6 @@ class Attendance{
                 self.attendanceDataList["status"] = json["status"].string
                 self.attendanceDataList["resultMsg"] = json["resultMsg"].string
                 semaphore.signal()
-                
-//                print(self.userDataList["userId"]!)
-//                print(self.userDataList["name"]!)
-//                print(self.userDataList["userType"]!)
-//                print(self.userDataList["classId"]!)
                 
             case .failure(let error):
                 self.attendanceDataList["resultMsg"] = String("AFエラー")

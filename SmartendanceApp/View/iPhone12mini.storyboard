@@ -503,7 +503,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ez-di-iPM">
-                                <rect key="frame" x="68" y="596" width="240" height="70"/>
+                                <rect key="frame" x="68" y="671" width="240" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -591,21 +591,6 @@
                                 <color key="textColor" red="0.89427608250000001" green="0.45604383949999999" blue="0.41958260539999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2E-Ak-uhs">
-                                <rect key="frame" x="135" y="405" width="18" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sv-TK-M38">
-                                <rect key="frame" x="163" y="399" width="72" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="金子　凌大">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTt-tm-gOd">
                                 <rect key="frame" x="222" y="180" width="43" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -620,24 +605,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ygF-rs-UdI">
+                                <rect key="frame" x="68" y="400" width="240" height="249"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="30" id="4zg-gI-Xry">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="240" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4zg-gI-Xry" id="TWP-90-UJs">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N4T-ja-i86"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="absenceTableView" destination="ygF-rs-UdI" id="lV9-1O-QBl"/>
                         <outlet property="classLabel" destination="1xE-D3-QWC" id="E8K-VF-gW2"/>
+                        <outlet property="countPeopleLabel" destination="IYJ-LN-N40" id="PNb-PF-grg"/>
                         <outlet property="idLabel" destination="Vct-Rr-iIl" id="wdJ-ZX-KTs"/>
                         <outlet property="myPageButtonOutlet" destination="0ez-di-iPM" id="221-hd-4Eg"/>
                         <outlet property="nameLabel" destination="leU-cV-QP4" id="SQg-rZ-ZVr"/>
                         <outlet property="roomNumLabel" destination="hyP-V1-RwW" id="Leb-G5-EaI"/>
                         <outlet property="subjectLabel" destination="jwv-Ae-pVC" id="w6T-il-viy"/>
-                        <outlet property="timeLabel" destination="IYJ-LN-N40" id="hU6-Vo-zj4"/>
                         <segue destination="kbs-Aw-Xyg" kind="presentation" identifier="backMyPage" id="zDD-hG-ViM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SyW-PR-7Go" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2781.5999999999999" y="903.59820089955031"/>
+            <point key="canvasLocation" x="2781.5999999999999" y="902.95566502463055"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="ets-go-Lub">
@@ -733,7 +734,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htn-zP-CkF">
-                                <rect key="frame" x="68" y="560" width="240" height="70"/>
+                                <rect key="frame" x="68" y="624" width="240" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91980725526809692" green="0.64671412038355736" blue="0.46473319425779608" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -766,14 +767,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="教室番号：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kC-OI-3GT">
-                                <rect key="frame" x="92" y="309" width="72" height="17"/>
+                                <rect key="frame" x="16" y="309" width="72" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="null" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbC-2U-OJO">
-                                <rect key="frame" x="161" y="309" width="115" height="17"/>
+                                <rect key="frame" x="85" y="309" width="115" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -793,10 +794,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="eYM-Wy-Mmr">
-                                <rect key="frame" x="174" y="410" width="20" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UUID：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KR-5e-3Hp">
+                                <rect key="frame" x="13" y="334" width="72" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="null" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8V3-pL-IaV">
+                                <rect key="frame" x="85" y="334" width="271" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XBn-iA-1Mj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -804,21 +815,21 @@
                     <connections>
                         <outlet property="idLabel" destination="8ai-zA-zyF" id="fpw-6w-eDE"/>
                         <outlet property="nameLabel" destination="Mhe-JC-2xU" id="q3o-Ee-rVL"/>
-                        <outlet property="roadIndicator" destination="eYM-Wy-Mmr" id="yFe-Pq-8v9"/>
                         <outlet property="roomNumberLabel" destination="dbC-2U-OJO" id="Baa-Wf-Su9"/>
                         <outlet property="stopButtonOutlet" destination="Htn-zP-CkF" id="k4N-9F-deX"/>
+                        <outlet property="uuidLabel" destination="8V3-pL-IaV" id="aVt-NF-VmO"/>
                         <segue destination="0La-6l-BgN" kind="presentation" identifier="backMyPage" id="8a4-iD-xkX"/>
                         <segue destination="v6v-e7-1zf" kind="presentation" identifier="nextAttendanceComplete" id="625-Kq-gPd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6w0-YZ-OfB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2865" y="108"/>
+            <point key="canvasLocation" x="2864.8000000000002" y="107.88177339901478"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8a4-iD-xkX"/>
-        <segue reference="BpV-fX-pjt"/>
+        <segue reference="zDD-hG-ViM"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="1734" height="445"/>
