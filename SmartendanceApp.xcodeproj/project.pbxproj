@@ -24,6 +24,7 @@
 		A3CCA81E2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */; };
 		A3CCA8202688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */; };
 		A3CD19DE2690141700CDECB8 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CD19DD2690141700CDECB8 /* Login.swift */; };
+		A3E04F6B26D63B7700771C0F /* beacon.json in Resources */ = {isa = PBXBuildFile; fileRef = A3E04F6A26D63B7700771C0F /* beacon.json */; };
 		A3E976732694A7B9002E56A8 /* BeaconSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E976722694A7B9002E56A8 /* BeaconSearchViewController.swift */; };
 		A3E976752694CADC002E56A8 /* iPhone12mini.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3E976742694CADC002E56A8 /* iPhone12mini.storyboard */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		A3CCA81D2688E56D005A11BE /* RoomSelectWithTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectWithTeacherViewController.swift; sourceTree = "<group>"; };
 		A3CCA81F2688E5BB005A11BE /* AttendanceCheckWithTeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCheckWithTeacherViewController.swift; sourceTree = "<group>"; };
 		A3CD19DD2690141700CDECB8 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		A3E04F6A26D63B7700771C0F /* beacon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = beacon.json; sourceTree = "<group>"; };
 		A3E976722694A7B9002E56A8 /* BeaconSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconSearchViewController.swift; sourceTree = "<group>"; };
 		A3E976742694CADC002E56A8 /* iPhone12mini.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhone12mini.storyboard; sourceTree = "<group>"; };
 		AE13D463B051FED04A4E5288 /* Pods_SmartendanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartendanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 				A388248A268D60940026108F /* Controller */,
 				A3B894BD2688C4C000715BB4 /* LaunchScreen.storyboard */,
 				A3B894C02688C4C000715BB4 /* Info.plist */,
+				A3E04F6A26D63B7700771C0F /* beacon.json */,
 			);
 			path = SmartendanceApp;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3B894BF2688C4C000715BB4 /* LaunchScreen.storyboard in Resources */,
+				A3E04F6B26D63B7700771C0F /* beacon.json in Resources */,
 				A3E976752694CADC002E56A8 /* iPhone12mini.storyboard in Resources */,
 				A3B894BC2688C4C000715BB4 /* Assets.xcassets in Resources */,
 				A3B894BA2688C4BE00715BB4 /* Main.storyboard in Resources */,

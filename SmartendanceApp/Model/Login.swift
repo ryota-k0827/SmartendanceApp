@@ -29,7 +29,7 @@ class Login{
 //        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON(queue: queue){ (response) in
             
             
-        let url = "https://06392f6d0b82.ngrok.io/GitHub/Smartendance/login.php?userId=\(userId)&password=\(password)"
+        let url = "https://f4c8-240b-250-1a0-1b10-88ea-1a20-4719-bfde.ngrok.io/Smartendance/login.php?userId=\(userId)&password=\(password)"
 
         //Alamofireを使ってhttpリクエストを投げる。
         AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON(queue: queue){ (response) in

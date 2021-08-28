@@ -79,16 +79,6 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
     
     //画面遷移で値を渡す
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-//        if segue.identifier == "nextAttendanceComplete" {
-//            let nextVC = segue.destination as! AttendanceCompleteViewController
-//            //教室番号を受け渡し↓
-//            let roomNunberText: String? = roomNumber.text
-//            nextVC.roomNumberText = roomNunberText!
-//
-//            nextVC.attendanceDataList = attendanceModel.attendanceDataList
-//        }
-        
         if segue.identifier == "nextBeaconSearch" {
             let nextVC = segue.destination as! BeaconSearchViewController
             //教室番号を受け渡し↓
@@ -97,15 +87,5 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
             nextVC.beaconUUID = beaconModel.BeaconUuid
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
