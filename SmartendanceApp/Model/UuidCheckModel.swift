@@ -20,6 +20,10 @@ class UuidCheck{
         let queue = DispatchQueue.global(qos: .utility)
             
             
+        /**
+         API URL
+         class_select.php
+         */
         let url = "http://ryotakaneko.php.xdomain.jp/Smartendance/class_select.php?class_room=\(classRoom)&user_id=\(userId)&class_id=\(classId)"
         
         //Alamofireを使ってhttpリクエストを投げる。

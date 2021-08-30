@@ -22,6 +22,10 @@ class AttendanceCheck{
         let queue = DispatchQueue.global(qos: .utility)
             
             
+        /**
+         API URL
+         attendance_confirmation.php
+         */
         let url = "http://ryotakaneko.php.xdomain.jp/Smartendance/attendance_confirmation.php?class_room=\(classRoom)"
         
         //Alamofireを使ってhttpリクエストを投げる。

@@ -18,6 +18,10 @@ class Attendance{
         let semaphore = DispatchSemaphore(value: 0)
         let queue = DispatchQueue.global(qos: .utility)
             
+        /**
+         API URL
+         student_attend.php
+         */
         let url = "http://ryotakaneko.php.xdomain.jp/Smartendance/student_attend.php?class_room=\(classRoom)&user_id=\(userId)&class_id=\(classId)"
         
         //Alamofireを使ってhttpリクエストを投げる。
