@@ -18,6 +18,10 @@ class Login{
         let queue = DispatchQueue.global(qos: .utility)
             
             
+        /**
+         API URL
+         login.php
+         */
         let url = "http://ryotakaneko.php.xdomain.jp/Smartendance/login.php?userId=\(userId)&password=\(password)"
 
         //Alamofireを使ってhttpリクエストを投げる。
