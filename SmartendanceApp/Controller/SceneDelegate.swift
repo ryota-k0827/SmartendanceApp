@@ -28,7 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         var storyboard = UIStoryboard()
         let height = UIScreen.main.bounds.size.height
-        print(height)
         if height == 667 {
             storyboard = UIStoryboard(name: "Main", bundle: nil)
         }else {

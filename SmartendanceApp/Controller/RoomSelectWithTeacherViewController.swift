@@ -29,12 +29,14 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
         
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
         nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
+        
+        //数値のみ入力できるように設定
+        roomNumberWithTeacher.keyboardType = UIKeyboardType.numberPad
     }
     
     @IBAction func attendanceCheckWithTeacher(_ sender: Any) {
+        //教室番号が空白
         if let text = roomNumberWithTeacher.text, text.isEmpty {
-            //空白処理
-            print("教室番号が空白")
             //アラートを表示
             let dialog = UIAlertController(title: "エラー", message: "教室番号を入力してください。", preferredStyle: .alert)
             dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
@@ -43,7 +45,6 @@ class RoomSelectWithTeacherViewController: UIViewController, UITextFieldDelegate
         else {
             attendanceCheckModel.attendanceProcess(classRoom: String(roomNumberWithTeacher.text!))
             if attendanceCheckModel.resultMsg == "" {
-                print("教室番号：\(String(describing: roomNumberWithTeacher.text))")
                 //画面遷移
                 performSegue(withIdentifier: "nextAttendanceCheckWithTeacher", sender: nil)
             } else {

@@ -35,8 +35,6 @@ class AttendanceCheck{
             
             case .success:
                 let json:JSON = JSON(response.data as Any)
-                print("JSONの中身↓")
-                print(json)
                 if json["result"].string == nil {
                     self.resultMsg = ""
                     self.attendanceDataList["classRoomNumber"] = json["classRoomNumber"].string
@@ -57,10 +55,8 @@ class AttendanceCheck{
                 }
                 semaphore.signal()
                 
-            case .failure(let error):
-                self.resultMsg = "AFエラー"
-                print("AFエラー")
-                print(error)
+            case .failure(_):
+                self.resultMsg = "サーバーが応答していません。"
                 semaphore.signal()
                 
             }

@@ -23,8 +23,6 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roomNumberLabel: UILabel!
-    @IBOutlet weak var uuidLabel: UILabel!
-    @IBOutlet weak var roadIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var stopButtonOutlet: UIButton!
     
@@ -34,8 +32,6 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(beaconUUID)
-        
         //ボタンを丸くする
         stopButtonOutlet.layer.cornerRadius = 10.0
         
@@ -43,7 +39,6 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
         nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
         roomNumberLabel.text = roomNumberText
-        uuidLabel.text = beaconUUID
         
         let animationView = AnimationView(name: "beacon")
         animationView.frame = CGRect(x: 0, y: 380, width: view.frame.size.width, height: view.frame.size.height / 4)
@@ -59,7 +54,6 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
         myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
         myLocationManager.distanceFilter = 1
         let status = CLLocationManager.authorizationStatus()
-        print("CLAuthorizedStatus: \(status.rawValue)");
         if(status == .notDetermined) {
             myLocationManager.requestAlwaysAuthorization()
         }
@@ -99,28 +93,20 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
         myBeaconRegion.notifyOnEntry = true
         myBeaconRegion.notifyOnExit = true
         myLocationManager.startMonitoring(for: myBeaconRegion)
-        print("UUID：" + beaconUUID)
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
-        //print("didChangeAuthorizationStatus");
         switch (status) {
         case .notDetermined:
-            //print("not determined")
             break
         case .restricted:
-            //print("restricted")
             break
         case .denied:
-            //print("denied")
             break
         case .authorizedAlways:
-            //print("authorizedAlways")
             startMyMonitoring()
             break
         case .authorizedWhenInUse:
-            //print("authorizedWhenInUse")
             startMyMonitoring()
             break
         }
@@ -136,7 +122,6 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
         case .inside:
             
             //ビーコン接続後処理================================================================================================================================
-            print("ビーコンの領域内1")
 
             //ビーコン探索停止処理
             myLocationManager = CLLocationManager()
@@ -162,11 +147,10 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
 
             manager.startRangingBeacons(in: region as! CLBeaconRegion)
             break;
+        //ビーコンの領域外
         case .outside:
-            print("ビーコンの領域外")
             break;
         case .unknown:
-            print("ビーコンが見つかりません！")
             break;
         }
     }
@@ -183,25 +167,21 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
                 let rssi = beacon.rssi;
                 var proximity = ""
                 switch (beacon.proximity) {
+                //ビーコンの領域外
                 case CLProximity.unknown :
-                    //print("Proximity: Unknown");
                     proximity = "Unknown"
-                    print("ビーコンの領域外")
                     break
+                //ビーコンの領域内
                 case CLProximity.far:
-                    //print("Proximity: Far");
                     proximity = "Far"
-                    print("ビーコンの領域内")
                     break
+                //ビーコンの領域内
                 case CLProximity.near:
-                    //print("Proximity: Near");
                     proximity = "Near"
-                    print("ビーコンの領域内")
                     break
+                //ビーコンの領域内
                 case CLProximity.immediate:
-                    //print("Proximity: Immediate");
                     proximity = "Immediate"
-                    print("ビーコンの領域内")
                     break
                 }
                 beaconUuids.add(beaconUUID.uuidString)
@@ -209,20 +189,18 @@ class BeaconSearchViewController: UIViewController, CLLocationManagerDelegate {
                 myBeaconDetails += "Minor: \(minorID) "
                 myBeaconDetails += "Proximity:\(proximity) "
                 myBeaconDetails += "RSSI:\(rssi)"
-                //print(myBeaconDetails)
                 beaconDetails.add(myBeaconDetails)
-                //print("ビーコンとの距離：" + proximity)
             }
         }
     }
 
+    ////ビーコンの領域外
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("ビーコンの領域内2")
         manager.startRangingBeacons(in: region as! CLBeaconRegion)
     }
 
+    //ビーコンの領域外
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("ビーコンの領域外")
         manager.stopRangingBeacons(in: region as! CLBeaconRegion)
     }
     

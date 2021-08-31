@@ -35,8 +35,6 @@ class AttendanceCheckWithTeacherViewController: UIViewController, UITableViewDel
         absenceTableView.delegate = self
         absenceTableView.dataSource = self
         
-        print(attendDataList)
-        
         myPageButtonOutlet.layer.cornerRadius = 10.0
         
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)

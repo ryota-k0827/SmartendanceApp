@@ -697,20 +697,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UUID：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lw8-gR-HcA">
-                                <rect key="frame" x="16" y="299" width="72" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="null" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wa5-Pd-zpl">
-                                <rect key="frame" x="85" y="299" width="274" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sha-iC-VjW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -720,7 +706,6 @@
                         <outlet property="nameLabel" destination="XTh-SN-Foc" id="SlN-1F-BUh"/>
                         <outlet property="roomNumberLabel" destination="i36-xx-ZgO" id="B9w-qX-GoB"/>
                         <outlet property="stopButtonOutlet" destination="KFl-P5-jTa" id="Flo-Sc-GTT"/>
-                        <outlet property="uuidLabel" destination="Wa5-Pd-zpl" id="2hH-Z3-X34"/>
                         <segue destination="VeV-NF-cmC" kind="presentation" identifier="backMyPage" id="ZQ8-oF-ozG"/>
                         <segue destination="23P-LB-HeJ" kind="presentation" identifier="nextAttendanceComplete" id="axP-ic-8K2"/>
                     </connections>
@@ -731,8 +716,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4OW-4w-Zlz"/>
-        <segue reference="5Xh-2u-79L"/>
+        <segue reference="0PP-Jo-EvX"/>
+        <segue reference="ZQ8-oF-ozG"/>
+        <segue reference="kMy-ot-AGh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="1734" height="445"/>

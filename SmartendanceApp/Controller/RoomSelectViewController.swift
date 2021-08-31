@@ -29,13 +29,15 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
         
         idLabel.text = (UserDefaults.standard.object(forKey: "userId") as! String)
         nameLabel.text = (UserDefaults.standard.object(forKey: "name") as! String)
+        
+        //数値のみ入力できるように設定
+        roomNumber.keyboardType = UIKeyboardType.numberPad
     }
     
     //出席ボタン
     @IBAction func attendance(_ sender: Any) {
+        //教室番号が空白
         if let text = roomNumber.text, text.isEmpty {
-            //空白処理
-            print("教室番号が空白")
             //アラートを表示
             let dialog = UIAlertController(title: "エラー", message: "教室番号を入力してください。", preferredStyle: .alert)
             dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
@@ -45,11 +47,9 @@ class RoomSelectViewController: UIViewController, UITextFieldDelegate {
         else {
             beaconModel.getUid(classRoom: String(roomNumber.text!), userId: (UserDefaults.standard.object(forKey: "userId") as! String), classId: (UserDefaults.standard.object(forKey: "classId") as! String))
             if beaconModel.resultMsg == "" {
-                print("教室番号：\(String(describing: roomNumber.text))")
                 //画面遷移
                 performSegue(withIdentifier: "nextBeaconSearch", sender: nil)
             } else {
-                print(beaconModel.resultMsg)
                 //アラートを表示
                 let dialog = UIAlertController(title: "エラー", message: beaconModel.resultMsg, preferredStyle: .alert)
                 dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
