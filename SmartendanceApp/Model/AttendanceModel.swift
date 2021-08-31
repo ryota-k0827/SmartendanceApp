@@ -31,8 +31,6 @@ class Attendance{
             
             case .success:
                 let json:JSON = JSON(response.data as Any)
-                print("JSONの中身↓")
-                print(json)
                 self.attendanceDataList["classRoomNuber"] = json["classRoomNuber"].string
                 self.attendanceDataList["classSymbol"] = json["classSymbol"].string
                 self.attendanceDataList["subject"] = json["subject"].string
@@ -41,10 +39,8 @@ class Attendance{
                 self.attendanceDataList["resultMsg"] = json["resultMsg"].string
                 semaphore.signal()
                 
-            case .failure(let error):
-                self.attendanceDataList["resultMsg"] = String("AFエラー")
-                print("AFエラー")
-                print(error)
+            case .failure(_):
+                self.attendanceDataList["resultMsg"] = String("サーバーが応答していません。")
                 semaphore.signal()
                 
             }

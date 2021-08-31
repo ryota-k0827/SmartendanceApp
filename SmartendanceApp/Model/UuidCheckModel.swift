@@ -33,8 +33,6 @@ class UuidCheck{
             
             case .success:
                 let json:JSON = JSON(response.data as Any)
-                print("JSONの中身↓")
-                print(json)
                 if json["resultMsg"].string == nil {
                     self.resultMsg = ""
                     self.BeaconUuid = json["UUID"].string!
@@ -43,10 +41,8 @@ class UuidCheck{
                 }
                 semaphore.signal()
                 
-            case .failure(let error):
-                self.resultMsg = "AFエラー"
-                print("AFエラー")
-                print(error)
+            case .failure(_):
+                self.resultMsg = "サーバーが応答していません。"
                 semaphore.signal()
                 
             }

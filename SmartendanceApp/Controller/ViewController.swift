@@ -17,12 +17,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var loginModel = Login()
     
     override func viewDidAppear(_ animated:Bool) {
+        //ログイン済み
         if UserDefaults.standard.object(forKey: "userId") != nil {
-            print("ログイン済み")
             //画面遷移
             performSegue(withIdentifier: "nextMyPage", sender: nil)
-        }else {
-            print("初回起動です。")
+        }
+        //初回起動
+        else {
             super.viewDidLoad()
             loginButtonOutlet.layer.cornerRadius = 10.0
             
@@ -34,32 +35,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func login(_ sender: Any) {
         
+        //ユーザIDが空白
         if let text = userId.text, text.isEmpty {
-            //空白処理
-            print("ユーザIDが空白")
             //アラートを表示
-            let dialog = UIAlertController(title: "エラー", message: "ユーザIDが空白です。", preferredStyle: .alert)
+            let dialog = UIAlertController(title: "エラー", message: "ユーザIDを入力してください。", preferredStyle: .alert)
             dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
             self.present(dialog, animated: true, completion: nil)
         }
+        //パスワードが空白
         else if let text = pasword.text, text.isEmpty {
-            //空白処理
-            print("パスワードが空白")
             //アラートを表示
-            let dialog = UIAlertController(title: "エラー", message: "パスワードが空白です。", preferredStyle: .alert)
+            let dialog = UIAlertController(title: "エラー", message: "パスワードを入力してください。", preferredStyle: .alert)
             dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
             self.present(dialog, animated: true, completion: nil)
         }
         else {
-            print("ユーザID：\(String(userId.text!))")
-            print("パスワード：\(String(pasword.text!))")
-            
             loginModel.getUserData(userId: String(userId.text!), password: String(pasword.text!))
+            //ログイン成功
             if loginModel.resultMsg == "ログイン成功" {
                 //画面遷移
                 performSegue(withIdentifier: "nextMyPage", sender: nil)
-            } else {
-                print("ログイン失敗")
+            }
+            //ログイン失敗
+            else {
                 //アラートを表示
                 let dialog = UIAlertController(title: "エラー", message: "ユーザIDもしくはパスワードが正しくありません。", preferredStyle: .alert)
                 dialog.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))

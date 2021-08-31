@@ -31,8 +31,7 @@ class Login{
             
             case .success:
                 let json:JSON = JSON(response.data as Any)
-                print("JSONの中身↓")
-                print(json)
+                
                 if json["resultMsg"].string == nil {
                     self.resultMsg = "ログイン成功"
                     UserDefaults.standard.set(json["userId"].string, forKey: "userId")
@@ -44,10 +43,8 @@ class Login{
                 }
                 semaphore.signal()
                 
-            case .failure(let error):
-                self.resultMsg = "AFエラー"
-                print("AFエラー")
-                print(error)
+            case .failure(_):
+                self.resultMsg = "サーバーが応答していません。"
                 semaphore.signal()
                 
             }
