@@ -1,0 +1,6 @@
+framework module Pods_SmartendanceApp {
+  umbrella header "Pods-SmartendanceApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
